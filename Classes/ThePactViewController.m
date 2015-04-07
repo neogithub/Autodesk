@@ -135,6 +135,19 @@ static NSUInteger kFrameFixer = 1;
 	
 	[self performSelector:@selector(animateTitle) withObject:nil afterDelay:2.5];
 
+//    UIImage *dividerimg = [UIImage imageNamed:@"aa"];
+//    [movieBtns setDividerImage:dividerimg
+//                    forLeftSegmentState:UIControlStateNormal
+//                    rightSegmentState:UIControlStateNormal
+//                    barMetrics:UIBarMetricsDefault];
+//    [movieBtns setDividerImage:dividerimg
+//                    forLeftSegmentState:UIControlStateSelected
+//                    rightSegmentState:UIControlStateNormal
+//                    barMetrics:UIBarMetricsDefault];
+//    [movieBtns setDividerImage:dividerimg
+//                    forLeftSegmentState:UIControlStateNormal
+//                    rightSegmentState:UIControlStateSelected
+//                    barMetrics:UIBarMetricsDefault];
 }
 
 -(void)swipePrevSection:(id)sender {
@@ -573,12 +586,12 @@ static NSUInteger kFrameFixer = 1;
 						 animations:^{
 							 movieBtns.selectedSegmentIndex = 0;
 							 
-							 movieThumb.frame = CGRectMake(0, 264, 355, 214);
+							 movieThumb.frame = CGRectMake(26, 284, 314, 180);
 							 movieThumb02.frame = CGRectMake(354, 284, 314, 180);
 							 movieThumb03.frame = CGRectMake(682, 284, 314, 180);
 
 							 if (movieTag==0) {
-								 movieViewBlack.frame = CGRectMake(0, 264, 355, 214);
+								 movieViewBlack.frame = CGRectMake(26, 284, 314, 180);
 							 } else if (movieTag==1) {
 								 movieViewBlack.frame = CGRectMake(354, 284, 314, 180);
 							 } else if (movieTag==2){

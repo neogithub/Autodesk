@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVPlayer.h>
+#import <AVFoundation/AVAsset.h>
+#import <AVFoundation/AVMediaFormat.h>
+#import <AVFoundation/AVAudioMix.h>
+#import <AVFoundation/AVAssetTrack.h>
+#import <AVFoundation/AVPlayerItem.h>
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
