@@ -1,0 +1,12 @@
+body {
+	background-color:transparent;
+}
+
+p {
+	font-size: 18px;
+	font-family: optima;
+	font-weight: normal;
+	text-shadow: 0px -1px 0pt rgba(0, 0, 0, 0.4);
+	text-align: left;
+	color: white;
+}
