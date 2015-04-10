@@ -54,6 +54,11 @@
 		820536921AD4673F00B266CC /* bg-playback-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536901AD4673F00B266CC /* bg-playback-top@2x.png */; };
 		820536951AD4675A00B266CC /* bg-playback-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536931AD4675A00B266CC /* bg-playback-bottom.png */; };
 		820536961AD4675A00B266CC /* bg-playback-bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536941AD4675A00B266CC /* bg-playback-bottom@2x.png */; };
+		8276C4B31AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B01AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov */; };
+		8276C4B41AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B11AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov */; };
+		8276C4B51AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B21AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov */; };
+		82CC81971AD85959003B7CCB /* xhMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CC81951AD85959003B7CCB /* xhMediaViewController.m */; };
+		82CC81991AD85C3F003B7CCB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CC81981AD85C3F003B7CCB /* CoreMedia.framework */; };
 		F20569E91382E64000520C7A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F20569E81382E64000520C7A /* Icon-72.png */; };
 		F21F66CB1371CFBC000C9F81 /* wesyburyLogo_sml.png in Resources */ = {isa = PBXBuildFile; fileRef = F21F66CA1371CFBC000C9F81 /* wesyburyLogo_sml.png */; };
 		F253575212BA5884000F091F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F253575112BA5884000F091F /* Reachability.m */; };
@@ -126,6 +131,12 @@
 		820536901AD4673F00B266CC /* bg-playback-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-playback-top@2x.png"; sourceTree = "<group>"; };
 		820536931AD4675A00B266CC /* bg-playback-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-playback-bottom.png"; sourceTree = "<group>"; };
 		820536941AD4675A00B266CC /* bg-playback-bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-playback-bottom@2x.png"; sourceTree = "<group>"; };
+		8276C4B01AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AutodeskBimCityConstructionAppleTV.mov; sourceTree = "<group>"; };
+		8276C4B11AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AutodeskBimCityEngineeringAppleTV.mov; sourceTree = "<group>"; };
+		8276C4B21AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AutodeskBimCityTransportationAppleTV.mov; sourceTree = "<group>"; };
+		82CC81951AD85959003B7CCB /* xhMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xhMediaViewController.m; sourceTree = SOURCE_ROOT; };
+		82CC81961AD85959003B7CCB /* xhMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xhMediaViewController.h; sourceTree = SOURCE_ROOT; };
+		82CC81981AD85C3F003B7CCB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* emc-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "emc-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F20569E81382E64000520C7A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		F21F66CA1371CFBC000C9F81 /* wesyburyLogo_sml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wesyburyLogo_sml.png; sourceTree = "<group>"; };
@@ -153,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82CC81991AD85C3F003B7CCB /* CoreMedia.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -177,6 +189,8 @@
 				28D7ACF60DDB3853001CB0EB /* ThePactViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* ThePactViewController.m */,
 				2899E5210DE3E06400AC0155 /* ThePactViewController.xib */,
+				82CC81961AD85959003B7CCB /* xhMediaViewController.h */,
+				82CC81951AD85959003B7CCB /* xhMediaViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -234,6 +248,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82CC81981AD85C3F003B7CCB /* CoreMedia.framework */,
 				F2535A5712BA8776000F091F /* QuartzCore.framework */,
 				F253595B12BA6C05000F091F /* AVFoundation.framework */,
 				F25357CD12BA5A5D000F091F /* SystemConfiguration.framework */,
@@ -248,6 +263,7 @@
 		820536781AD461D700B266CC /* src */ = {
 			isa = PBXGroup;
 			children = (
+				8276C4AF1AD5619A006C4047 /* films */,
 				8205367E1AD4625000B266CC /* UI */,
 				820536791AD461D700B266CC /* grfx */,
 			);
@@ -280,6 +296,16 @@
 				820536861AD4625000B266CC /* icon-play@2x.png */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		8276C4AF1AD5619A006C4047 /* films */ = {
+			isa = PBXGroup;
+			children = (
+				8276C4B01AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov */,
+				8276C4B11AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov */,
+				8276C4B21AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov */,
+			);
+			path = films;
 			sourceTree = "<group>";
 		};
 		F253574F12BA5884000F091F /* _internetCheck */ = {
@@ -412,6 +438,8 @@
 				8205368C1AD4625000B266CC /* bttn-transportation@2x.png in Resources */,
 				820536951AD4675A00B266CC /* bg-playback-bottom.png in Resources */,
 				20CBD58D137F6FFC001451BC /* MH_play.png in Resources */,
+				8276C4B51AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov in Resources */,
+				8276C4B31AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov in Resources */,
 				20CBD58E137F6FFC001451BC /* MH_video_t.png in Resources */,
 				20CBD58F137F6FFC001451BC /* MH_video.png in Resources */,
 				20CBD592137F7074001451BC /* MH_bg.png in Resources */,
@@ -436,6 +464,7 @@
 				F20569E91382E64000520C7A /* Icon-72.png in Resources */,
 				208FECA713832083007E4F12 /* DoneBtn.png in Resources */,
 				8205368E1AD4625000B266CC /* icon-play@2x.png in Resources */,
+				8276C4B41AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov in Resources */,
 				8205367D1AD461D700B266CC /* bg-Main-Menu@2x.png in Resources */,
 				205E0C1E15112F9300168849 /* MH_video03.png in Resources */,
 				205E0C1F15112F9300168849 /* MH_video02.png in Resources */,
@@ -455,6 +484,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* ThePactAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* ThePactViewController.m in Sources */,
+				82CC81971AD85959003B7CCB /* xhMediaViewController.m in Sources */,
 				F253575212BA5884000F091F /* Reachability.m in Sources */,
 				F29D192E137C7DD30008A4C5 /* ScriptViewController.m in Sources */,
 			);

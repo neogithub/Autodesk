@@ -46,6 +46,10 @@ static NSUInteger kFrameFixer = 1;
 // leaves
 @synthesize leaves, leave01, leave02, leave03, leave04, leave05, leave06, leave07;
 
+// AVPlayer
+@synthesize myAVPlayer;
+@synthesize myAVPlayerLayer;
+@synthesize playerItem;
 
 -(void)viewWillAppear:(BOOL)animated {
     [UIApplication sharedApplication].statusBarHidden = YES;
@@ -457,11 +461,11 @@ static NSUInteger kFrameFixer = 1;
 	url = nil;
 	
 	if ([sender tag]==0) {
-		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityEngineeringAppleTV" ofType:@"m4v"];
+		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityEngineeringAppleTV" ofType:@"mov"];
 	} else if ([sender tag]==1) {
-		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityConstructionAppleTV" ofType:@"m4v"];
+		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityConstructionAppleTV" ofType:@"mov"];
 	} else {
-		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityTransportationAppleTV" ofType:@"m4v"];
+		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityTransportationAppleTV" ofType:@"mov"];
 	}
 	
 	//NSURL *movieURL = [[NSBundle mainBundle] URLForResource:@"movie" withExtension:@"mp4"];
@@ -486,8 +490,24 @@ static NSUInteger kFrameFixer = 1;
 											 selector:@selector(movieFinishedCallback:)
 												 name:MPMoviePlayerPlaybackDidFinishNotification
 											   object:playerViewController.moviePlayer];
-	
-//	movieController = [[MPMoviePlayerViewController alloc] 
+    
+///////////////////////////--AVPlayer--////////////////////////////////
+    if (myAVPlayer) {
+        myAVPlayer = nil;
+        [myAVPlayerLayer removeFromSuperlayer];
+        myAVPlayerLayer = nil;
+        playerItem = nil;
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+    playerItem = [AVPlayerItem playerItemWithURL:[NSURL fileURLWithPath:url]];
+    myAVPlayer = [[AVPlayer alloc] initWithPlayerItem:playerItem];
+    myAVPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:myAVPlayer];
+    myAVPlayerLayer.frame = CGRectMake(0, 86, 1024, 576);
+    myAVPlayerLayer.backgroundColor = [UIColor redColor].CGColor;
+    [self.view.layer addSublayer: myAVPlayerLayer];
+    [myAVPlayer play];
+    NSLog(@"\n\n The video frame is %@", NSStringFromCGRect(myAVPlayerLayer.videoRect));
+//	movieController = [[MPMoviePlayerViewController alloc]
 //														 initWithContentURL:[NSURL fileURLWithPath:url]];
 //    
 //	

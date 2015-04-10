@@ -87,6 +87,11 @@
 
 @property (nonatomic, retain) UISlider *progressIndicator;
 
+// AVPlayer
+@property (nonatomic, strong)           AVPlayerItem               *playerItem;
+@property (nonatomic, strong)           AVPlayer                   *myAVPlayer;
+@property (nonatomic, strong)           AVPlayerLayer              *myAVPlayerLayer;
+
 -(void)animateLeaves;
 
 -(void)fadeImage;
