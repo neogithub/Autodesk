@@ -26,6 +26,8 @@ static NSUInteger kFrameFixer = 1;
     AVPlayerLayer       *profilePlayerLayer;
     AVPlayerItem        *profileItem;
     UITapGestureRecognizer *tapDetailVideo;
+    UISlider            *uisl_timerBar;
+    NSTimer             *sliederTimer;
 }
 //logo image
 @synthesize playButton02;
@@ -284,8 +286,59 @@ static NSUInteger kFrameFixer = 1;
     [uib_closeMainPlayer setTitle:@"DONE" forState:UIControlStateNormal];
     [uiv_myPlayerContainer addSubview: uib_closeMainPlayer];
     [uib_closeMainPlayer addTarget:self action:@selector(closeMainPlayer:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self createSlider];
+    [self createSliderTimer];
+}
+#pragma mark Slider Action
+- (void)createSlider
+{
+    uisl_timerBar = [UISlider new];
+    uisl_timerBar.frame = CGRectMake(250.0, 0.0, 500.0, 40.0);
+    uisl_timerBar.translatesAutoresizingMaskIntoConstraints = NO;
+    [uisl_timerBar setBackgroundColor:[UIColor clearColor]];
+    uisl_timerBar.minimumValue = 0.0;
+    uisl_timerBar.maximumValue = CMTimeGetSeconds([[myAVPlayer.currentItem asset] duration]);
+    uisl_timerBar.continuous = YES;
+    [uisl_timerBar addTarget:self action:@selector(sliding:) forControlEvents:UIControlEventValueChanged];
+    [uisl_timerBar addTarget:self action:@selector(finishedSliding:) forControlEvents:(UIControlEventTouchUpInside | UIControlEventTouchUpOutside)];
+    [uiv_myPlayerContainer addSubview:uisl_timerBar];
 }
 
+- (void)sliding:(id)sender
+{
+    [myAVPlayer pause];
+    UISlider *slider = sender;
+    CMTime newTime = CMTimeMakeWithSeconds(slider.value,600);
+    [myAVPlayer seekToTime:newTime
+           toleranceBefore:kCMTimeZero
+            toleranceAfter:kCMTimeZero];
+}
+
+- (void)finishedSliding:(id)sener
+{
+    [myAVPlayer play];
+}
+
+/*
+ Add Timer to slider
+ */
+- (void)createSliderTimer
+{
+    sliederTimer = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(updateSliderAndTimelabel) userInfo:nil repeats:YES];
+}
+
+/*
+ Slider action -- adjust slider's positon and update number of time label
+ */
+- (void)updateSliderAndTimelabel
+{
+    uisl_timerBar.maximumValue = CMTimeGetSeconds([[myAVPlayer.currentItem asset] duration]);
+    uisl_timerBar.value = CMTimeGetSeconds(myAVPlayer.currentTime);
+}
+
+
+#pragma mark Close Main Movie Player
 - (void)closeMainPlayer:(id)sender
 {
     [UIView animateWithDuration:0.50 delay:0.0 options:0
@@ -336,6 +389,7 @@ static NSUInteger kFrameFixer = 1;
                          [uiv_profileContainer removeFromSuperview];
                          [uiv_profileContainer release];
                          uiv_profileContainer = nil;
+                         [sliederTimer invalidate];
                          
                          //kill swipe gestures
                          pinchInRecognizer.enabled = NO;
@@ -520,6 +574,7 @@ static NSUInteger kFrameFixer = 1;
     {
         [myAVPlayer seekToTime:kCMTimeZero];
         [myAVPlayer play];
+        [uisl_timerBar setValue:0.0];
         return;
     }
     if (CMTimeGetSeconds(profilePlayer.currentTime) >= CMTimeGetSeconds([[profilePlayer.currentItem asset] duration]))
