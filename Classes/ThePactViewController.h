@@ -82,26 +82,24 @@
 @property (nonatomic, retain) NSArray *arr_Timecode;
 @property (nonatomic) NSUInteger movieTag;
 
-@property (nonatomic, retain) MPMoviePlayerViewController *playerViewController;
-@property (nonatomic, retain) MPMoviePlayerController *player;
-
 @property (nonatomic, retain) UISlider *progressIndicator;
 
 // AVPlayer
+@property (nonatomic, strong)           UIView                     *uiv_myPlayerContainer;
 @property (nonatomic, strong)           AVPlayerItem               *playerItem;
 @property (nonatomic, strong)           AVPlayer                   *myAVPlayer;
 @property (nonatomic, strong)           AVPlayerLayer              *myAVPlayerLayer;
 
--(void)animateLeaves;
+//-(void)animateLeaves;
 
 -(void)fadeImage;
--(void)openCatalogViewer;
+//-(void)openCatalogViewer;
 -(void)dismissModal;
 
--(IBAction)viewWeb:(id)sender;
+//-(IBAction)viewWeb:(id)sender;
 -(IBAction)playThisMovie:(id)sender;
 -(IBAction)movieShouldJump:(id)sender;
--(IBAction)movieStop;
+//-(IBAction)movieStop;
 
 @end
 
