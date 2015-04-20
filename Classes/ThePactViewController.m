@@ -450,7 +450,10 @@ static NSUInteger kFrameFixer = 1;
     [uiv_profileContainer addSubview: uib_userProfile];
     uib_userProfile.tag = index;
     [uib_userProfile addTarget:self action:@selector(tapUserProfile:) forControlEvents:UIControlEventTouchUpInside];
-    
+    uiv_profileContainer.transform = CGAffineTransformMakeTranslation(160.0, 0.0);
+    [UIView animateWithDuration:0.3 delay:5.5 options:0 animations:^{
+        uiv_profileContainer.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){    }];
     // Profile detail view image
     UIImage *detailImage;
     switch (index) {
@@ -492,6 +495,19 @@ static NSUInteger kFrameFixer = 1;
             uib_userProfile.alpha = 0.0;
             uiiv_profileDetail.alpha = 1.0;
             uiv_detailVideoContainer.hidden = NO;
+        }];
+    }];
+}
+
+- (void)hideProfileDetail
+{
+    [UIView animateWithDuration:0.33 animations:^{
+        uiv_profileContainer.frame = CGRectMake(885.0, 240.0, 137.0, 142.0);
+        uib_userProfile.alpha = 1.0;
+        uiiv_profileDetail.alpha = 0.0;
+    } completion:^(BOOL finished){
+        [UIView animateWithDuration:0.33 animations:^{
+            uiv_profileContainer.frame = CGRectMake(885.0, 500.0, 137.0, 142.0);
         }];
     }];
 }
@@ -565,6 +581,7 @@ static NSUInteger kFrameFixer = 1;
         [uiv_profileContainer insertSubview:uiv_detailVideoContainer aboveSubview:uiiv_profileDetail];
         [uiv_detailVideoContainer addGestureRecognizer:tapDetailVideo];
         [myAVPlayer play];
+        [self hideProfileDetail];
     }];
 }
 
