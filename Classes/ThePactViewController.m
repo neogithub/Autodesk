@@ -18,16 +18,18 @@ static NSUInteger kFrameFixer = 1;
 
 @implementation ThePactViewController
 {
-    UIView              *uiv_profileContainer;
-    UIButton            *uib_userProfile;
-    UIImageView         *uiiv_profileDetail;
-    UIView              *uiv_detailVideoContainer;
-    AVPlayer            *profilePlayer;
-    AVPlayerLayer       *profilePlayerLayer;
-    AVPlayerItem        *profileItem;
-    UITapGestureRecognizer *tapDetailVideo;
-    UISlider            *uisl_timerBar;
-    NSTimer             *sliederTimer;
+    UIView                          *uiv_profileContainer;
+    UIButton                        *uib_userProfile;
+    UIImageView                     *uiiv_profileDetail;
+    UIView                          *uiv_detailVideoContainer;
+    AVPlayer                        *profilePlayer;
+    AVPlayerLayer                   *profilePlayerLayer;
+    AVPlayerItem                    *profileItem;
+    UITapGestureRecognizer          *tapDetailVideo;
+    UISlider                        *uisl_timerBar;
+    NSTimer                         *sliederTimer;
+    UISwipeGestureRecognizer        *swipeProfileMovieUp;
+    UISwipeGestureRecognizer        *swipeProfileMovieDown;
 }
 //logo image
 @synthesize playButton02;
@@ -77,6 +79,14 @@ static NSUInteger kFrameFixer = 1;
     // make black moviethumb transparent
     movieViewBlack.alpha = 0.0;
 	
+    arr_Timecode = [[NSArray alloc] initWithObjects:
+                    [NSNumber numberWithFloat:0], //intro
+                    [NSNumber numberWithFloat:50+kFrameFixer], //map
+                    [NSNumber numberWithFloat:61+kFrameFixer], // cont - OK
+                    [NSNumber numberWithFloat:92+kFrameFixer], //2 level
+                    [NSNumber numberWithFloat:128+kFrameFixer], //glass
+                    nil];
+    
 	[self performSelector:@selector(animateTitle) withObject:nil afterDelay:2.5];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerItemDidReachEnd:)
@@ -317,6 +327,19 @@ static NSUInteger kFrameFixer = 1;
 
 - (void)finishedSliding:(id)sener
 {
+    NSNumber *currentTime = [NSNumber numberWithFloat:CMTimeGetSeconds(myAVPlayer.currentTime)];
+    int segIndex = 0;
+    for (NSNumber *time in arr_Timecode) {
+        if ([currentTime floatValue] < [time floatValue]-1) {
+            segIndex = (int)[arr_Timecode indexOfObject: time];
+            break;
+        }
+    }
+    if ([currentTime floatValue] > [[arr_Timecode objectAtIndex:(arr_Timecode.count - 1)] floatValue]) {
+        segIndex = (int)movieBtns.numberOfSegments - 1;
+    }
+    NSLog(@"The current index is %i", segIndex);
+    movieBtns.selectedSegmentIndex = segIndex;
     [myAVPlayer play];
 }
 
@@ -494,6 +517,7 @@ static NSUInteger kFrameFixer = 1;
             uiv_profileContainer.frame = CGRectMake(1024 - uiiv_profileDetail.frame.size.width, 240.0, uiiv_profileDetail.frame.size.width, uiiv_profileDetail.frame.size.height);
             uib_userProfile.alpha = 0.0;
             uiiv_profileDetail.alpha = 1.0;
+            [uiv_detailVideoContainer addGestureRecognizer:tapDetailVideo];
             uiv_detailVideoContainer.hidden = NO;
         }];
     }];
@@ -508,6 +532,7 @@ static NSUInteger kFrameFixer = 1;
     } completion:^(BOOL finished){
         [UIView animateWithDuration:0.33 animations:^{
             uiv_profileContainer.frame = CGRectMake(885.0, 500.0, 137.0, 142.0);
+            uiv_detailVideoContainer.hidden = YES;
         }];
     }];
 }
@@ -563,8 +588,31 @@ static NSUInteger kFrameFixer = 1;
             [uib_detailClose setTitle:@"X" forState:UIControlStateNormal];
             [uiv_detailVideoContainer addSubview: uib_detailClose];
             [uib_detailClose addTarget:self action:@selector(closeProfileMovie:) forControlEvents:UIControlEventTouchUpInside];
+            [self createProfileMovieGesture];
         }];
     }];
+}
+
+#pragma mark Add gesture control to profile video
+- (void)createProfileMovieGesture
+{
+    swipeProfileMovieUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(playProfileMovie:)];
+    swipeProfileMovieUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [uiv_detailVideoContainer addGestureRecognizer: swipeProfileMovieUp];
+    
+    swipeProfileMovieDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(pauseProfileMovie:)];
+    swipeProfileMovieDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [uiv_detailVideoContainer addGestureRecognizer: swipeProfileMovieDown];
+}
+
+- (void)playProfileMovie:(UIGestureRecognizer *)gesture
+{
+    [profilePlayer play];
+}
+
+- (void)pauseProfileMovie:(UIGestureRecognizer *)gesture
+{
+    [profilePlayer pause];
 }
 
 - (void)closeProfileMovie:(id)sender
@@ -579,12 +627,15 @@ static NSUInteger kFrameFixer = 1;
         [uiv_detailVideoContainer removeFromSuperview];
         uiv_detailVideoContainer.frame = CGRectMake(20, 55, 200, 200);
         [uiv_profileContainer insertSubview:uiv_detailVideoContainer aboveSubview:uiiv_profileDetail];
-        [uiv_detailVideoContainer addGestureRecognizer:tapDetailVideo];
+        [uiv_detailVideoContainer removeGestureRecognizer:swipeProfileMovieDown];
+        [uiv_detailVideoContainer removeGestureRecognizer:swipeProfileMovieUp];
+        [uiv_detailVideoContainer removeGestureRecognizer:tapDetailVideo];
         [myAVPlayer play];
         [self hideProfileDetail];
     }];
 }
 
+#pragma mark - AVPlayer Delegate Method
 - (void)playerItemDidReachEnd:(NSNotification *)notification
 {
     if (CMTimeGetSeconds(myAVPlayer.currentTime) >= CMTimeGetSeconds([[myAVPlayer.currentItem asset] duration]))
@@ -608,14 +659,6 @@ static NSUInteger kFrameFixer = 1;
     NSUInteger i = movieBtns.selectedSegmentIndex;
     
     [myAVPlayer pause];
-    
-    arr_Timecode = [[NSArray alloc] initWithObjects:
-                    [NSNumber numberWithFloat:0], //intro
-                    [NSNumber numberWithFloat:50+kFrameFixer], //map
-                    [NSNumber numberWithFloat:61+kFrameFixer], // cont - OK
-                    [NSNumber numberWithFloat:92+kFrameFixer], //2 level
-                    [NSNumber numberWithFloat:128+kFrameFixer], //glass
-                 nil];
     
    NSString *myString = [arr_Timecode objectAtIndex:i];
    Float64 stringfloat = [myString floatValue];
