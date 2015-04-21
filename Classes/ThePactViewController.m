@@ -13,11 +13,12 @@
 #import "ThePactAppDelegate.h"
 
 #define degreesToRadians(x) (M_PI * x / 180.0)
-
 static NSUInteger kFrameFixer = 1;
 
 @implementation ThePactViewController
 {
+    UIButton                        *uib_closeProfile;
+    UIButton                        *uib_closeMainPlayer;
     UIView                          *uiv_profileContainer;
     UIButton                        *uib_userProfile;
     UIImageView                     *uiiv_profileDetail;
@@ -27,6 +28,7 @@ static NSUInteger kFrameFixer = 1;
     AVPlayerItem                    *profileItem;
     UITapGestureRecognizer          *tapDetailVideo;
     UISlider                        *uisl_timerBar;
+    UISlider                        *uisl_profileTimeBar;
     NSTimer                         *sliederTimer;
     UISwipeGestureRecognizer        *swipeProfileMovieUp;
     UISwipeGestureRecognizer        *swipeProfileMovieDown;
@@ -72,7 +74,6 @@ static NSUInteger kFrameFixer = 1;
 -(void)viewDidLoad {
     
     [UIApplication sharedApplication].statusBarHidden = YES;
-
     // make logo image transparent
     logoImage.alpha = 0.0;
     
@@ -92,6 +93,17 @@ static NSUInteger kFrameFixer = 1;
                                              selector:@selector(playerItemDidReachEnd:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
                                                object:nil];
+    
+    UIFont *font = [UIFont fontWithName:@"TradeGothicLTStd-Cn18" size:16.0];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                           forKey:UITextAttributeFont];
+    [movieBtns setTitleTextAttributes:attributes
+                                    forState:UIControlStateNormal];
+
+    for (UILabel *label in [movieBtns subviews]) {
+        label.transform = CGAffineTransformMakeTranslation(0.0, 3.0);
+    }
+    [movieBtns setContentPositionAdjustment:UIOffsetMake(0, 2) forSegmentType:UISegmentedControlSegmentAny barMetrics:UIBarMetricsDefault];
 }
 
 -(void)swipePrevSection:(id)sender {
@@ -204,7 +216,6 @@ static NSUInteger kFrameFixer = 1;
 -(IBAction)playThisMovie:(id)sender {
 	
 	movieTag = [sender tag];
-    NSLog(@"my tag %i", movieTag);
 
     playButton.hidden = YES;
 	playButton02.hidden = YES;
@@ -290,11 +301,17 @@ static NSUInteger kFrameFixer = 1;
     myAVPlayerLayer.backgroundColor = [UIColor clearColor].CGColor;
     [uiv_myPlayerContainer.layer addSublayer:myAVPlayerLayer];
     
-    UIButton *uib_closeMainPlayer = [UIButton buttonWithType:UIButtonTypeCustom];
-    uib_closeMainPlayer.frame = CGRectMake(0.0, 0.0, 100.0, 40.0);
-    uib_closeMainPlayer.backgroundColor = [UIColor blackColor];
+    uib_closeMainPlayer = [UIButton buttonWithType:UIButtonTypeCustom];
+    uib_closeMainPlayer.frame = CGRectMake(35.0, 25.0, 80.0, 30.0);
+    uib_closeMainPlayer.backgroundColor = [UIColor clearColor];
     [uib_closeMainPlayer setTitle:@"DONE" forState:UIControlStateNormal];
-    [uiv_myPlayerContainer addSubview: uib_closeMainPlayer];
+    [uib_closeMainPlayer.titleLabel setFont:[UIFont fontWithName:@"TradeGothicLTStd-Cn18" size:16]];
+    [uib_closeMainPlayer setTitleEdgeInsets: UIEdgeInsetsMake(6.0, 0.0, 0.0, 0.0)];
+    uib_closeMainPlayer.layer.borderColor = [UIColor colorWithRed:115.0/255.0 green:142.0/255.0 blue:174.0/255.0 alpha:1.0].CGColor;
+    uib_closeMainPlayer.layer.borderWidth = 1.5;
+    uib_closeMainPlayer.layer.cornerRadius = 6.0;
+    [uib_closeMainPlayer setTitleColor:[UIColor colorWithRed:115.0/255.0 green:142.0/255.0 blue:174.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.view addSubview: uib_closeMainPlayer];
     [uib_closeMainPlayer addTarget:self action:@selector(closeMainPlayer:) forControlEvents:UIControlEventTouchUpInside];
     
     [self createSlider];
@@ -310,6 +327,7 @@ static NSUInteger kFrameFixer = 1;
     uisl_timerBar.minimumValue = 0.0;
     uisl_timerBar.maximumValue = CMTimeGetSeconds([[myAVPlayer.currentItem asset] duration]);
     uisl_timerBar.continuous = YES;
+    uisl_timerBar.tag = 1;
     [uisl_timerBar addTarget:self action:@selector(sliding:) forControlEvents:UIControlEventValueChanged];
     [uisl_timerBar addTarget:self action:@selector(finishedSliding:) forControlEvents:(UIControlEventTouchUpInside | UIControlEventTouchUpOutside)];
     [uiv_myPlayerContainer addSubview:uisl_timerBar];
@@ -317,30 +335,47 @@ static NSUInteger kFrameFixer = 1;
 
 - (void)sliding:(id)sender
 {
-    [myAVPlayer pause];
-    UISlider *slider = sender;
-    CMTime newTime = CMTimeMakeWithSeconds(slider.value,600);
-    [myAVPlayer seekToTime:newTime
-           toleranceBefore:kCMTimeZero
-            toleranceAfter:kCMTimeZero];
+    if ([sender tag] == 1) {
+        [myAVPlayer pause];
+        UISlider *slider = sender;
+        CMTime newTime = CMTimeMakeWithSeconds(slider.value,600);
+        [myAVPlayer seekToTime:newTime
+               toleranceBefore:kCMTimeZero
+                toleranceAfter:kCMTimeZero];
+    }
+    else {
+        [profilePlayer pause];
+        UISlider *slider = sender;
+        CMTime newTime = CMTimeMakeWithSeconds(slider.value,600);
+        [profilePlayer seekToTime:newTime
+               toleranceBefore:kCMTimeZero
+                toleranceAfter:kCMTimeZero];
+    }
 }
 
-- (void)finishedSliding:(id)sener
+- (void)finishedSliding:(id)sender
 {
-    NSNumber *currentTime = [NSNumber numberWithFloat:CMTimeGetSeconds(myAVPlayer.currentTime)];
-    int segIndex = 0;
-    for (NSNumber *time in arr_Timecode) {
-        if ([currentTime floatValue] < [time floatValue]-1) {
-            segIndex = (int)[arr_Timecode indexOfObject: time];
-            break;
+    if ([sender tag] == 1)
+    {
+        NSNumber *currentTime = [NSNumber numberWithFloat:CMTimeGetSeconds(myAVPlayer.currentTime)];
+        int segIndex = 0;
+        for (NSNumber *time in arr_Timecode) {
+            if ([currentTime floatValue] <= [time floatValue]) {
+                segIndex = (int)[arr_Timecode indexOfObject: time]-1;
+                break;
+            }
         }
+        if ([currentTime floatValue] > [[arr_Timecode objectAtIndex:(arr_Timecode.count - 1)] floatValue]) {
+            segIndex = (int)movieBtns.numberOfSegments - 1;
+        }
+        NSLog(@"The current index is %i", segIndex);
+        movieBtns.selectedSegmentIndex = segIndex;
+        [myAVPlayer play];
     }
-    if ([currentTime floatValue] > [[arr_Timecode objectAtIndex:(arr_Timecode.count - 1)] floatValue]) {
-        segIndex = (int)movieBtns.numberOfSegments - 1;
+    else
+    {
+        [profilePlayer play];
     }
-    NSLog(@"The current index is %i", segIndex);
-    movieBtns.selectedSegmentIndex = segIndex;
-    [myAVPlayer play];
 }
 
 /*
@@ -356,8 +391,30 @@ static NSUInteger kFrameFixer = 1;
  */
 - (void)updateSliderAndTimelabel
 {
-    uisl_timerBar.maximumValue = CMTimeGetSeconds([[myAVPlayer.currentItem asset] duration]);
-    uisl_timerBar.value = CMTimeGetSeconds(myAVPlayer.currentTime);
+    if (uiv_detailVideoContainer.frame.size.width > 1000) {
+        uisl_profileTimeBar.maximumValue = CMTimeGetSeconds([[profilePlayer.currentItem asset] duration]);
+        uisl_profileTimeBar.value = CMTimeGetSeconds(profilePlayer.currentTime);
+    }
+    else {
+        uisl_timerBar.maximumValue = CMTimeGetSeconds([[myAVPlayer.currentItem asset] duration]);
+        uisl_timerBar.value = CMTimeGetSeconds(myAVPlayer.currentTime);
+        
+        NSNumber *currentTime = [NSNumber numberWithFloat:CMTimeGetSeconds(myAVPlayer.currentTime)];
+        int segIndex = 0;
+        for (NSNumber *time in arr_Timecode)
+        {
+            if ([currentTime floatValue] <= [time floatValue])
+            {
+                segIndex = (int)[arr_Timecode indexOfObject: time]-1;
+                break;
+            }
+        }
+        if ([currentTime floatValue] > [[arr_Timecode objectAtIndex:(arr_Timecode.count - 1)] floatValue])
+        {
+            segIndex = (int)movieBtns.numberOfSegments - 1;
+        }
+        movieBtns.selectedSegmentIndex = segIndex;
+    }
 }
 
 
@@ -366,6 +423,8 @@ static NSUInteger kFrameFixer = 1;
 {
     [UIView animateWithDuration:0.50 delay:0.0 options:0
                      animations:^{
+                         uib_closeMainPlayer.alpha = 0.0;
+                         
                          movieBtns.selectedSegmentIndex = 0;
                          
                          movieThumb.frame = CGRectMake(26, 284, 314, 180);
@@ -413,6 +472,11 @@ static NSUInteger kFrameFixer = 1;
                          [uiv_profileContainer release];
                          uiv_profileContainer = nil;
                          [sliederTimer invalidate];
+                         
+                         //Kill Done button
+                         [uib_closeMainPlayer removeFromSuperview];
+                         [uib_closeMainPlayer release];
+                         uib_closeMainPlayer = nil;
                          
                          //kill swipe gestures
                          pinchInRecognizer.enabled = NO;
@@ -506,6 +570,27 @@ static NSUInteger kFrameFixer = 1;
     tapDetailVideo = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVideoDetail:)];
     [uiv_detailVideoContainer addGestureRecognizer:tapDetailVideo];
     uiv_detailVideoContainer.tag = index;
+    
+    //Close Profile button
+    uib_closeProfile = [UIButton buttonWithType:UIButtonTypeCustom];
+    uib_closeProfile.backgroundColor = [UIColor clearColor];
+    uib_closeProfile.frame = CGRectMake(0.0, 0.0, 240.0, 50.0);
+    [uib_closeProfile addTarget:self action:@selector(closeProfile:) forControlEvents:UIControlEventTouchUpInside];
+    uib_closeProfile.enabled = NO;
+    [uiv_profileContainer addSubview: uib_closeProfile];
+}
+
+- (void)closeProfile:(id)sender
+{
+    if (uiv_detailVideoContainer.hidden)
+    {
+        return;
+    }
+    else
+    {
+        [self hideProfileDetail];
+        uib_closeProfile.enabled = NO;
+    }
 }
 
 - (void)tapUserProfile:(id)sender
@@ -519,6 +604,7 @@ static NSUInteger kFrameFixer = 1;
             uiiv_profileDetail.alpha = 1.0;
             [uiv_detailVideoContainer addGestureRecognizer:tapDetailVideo];
             uiv_detailVideoContainer.hidden = NO;
+            uib_closeProfile.enabled = YES;
         }];
     }];
 }
@@ -589,8 +675,24 @@ static NSUInteger kFrameFixer = 1;
             [uiv_detailVideoContainer addSubview: uib_detailClose];
             [uib_detailClose addTarget:self action:@selector(closeProfileMovie:) forControlEvents:UIControlEventTouchUpInside];
             [self createProfileMovieGesture];
+            [self addSliderToProfileMovie];
         }];
     }];
+}
+
+- (void)addSliderToProfileMovie
+{
+    uisl_profileTimeBar = [UISlider new];
+    uisl_profileTimeBar.frame = CGRectMake(250.0, 80.0, 500.0, 40.0);
+    uisl_profileTimeBar.translatesAutoresizingMaskIntoConstraints = NO;
+    [uisl_profileTimeBar setBackgroundColor:[UIColor whiteColor]];
+    uisl_profileTimeBar.minimumValue = 0.0;
+    uisl_profileTimeBar.maximumValue = CMTimeGetSeconds([[myAVPlayer.currentItem asset] duration]);
+    uisl_profileTimeBar.continuous = YES;
+    uisl_profileTimeBar.tag = 2;
+    [uisl_profileTimeBar addTarget:self action:@selector(sliding:) forControlEvents:UIControlEventValueChanged];
+    [uisl_profileTimeBar addTarget:self action:@selector(finishedSliding:) forControlEvents:(UIControlEventTouchUpInside | UIControlEventTouchUpOutside)];
+    [uiv_detailVideoContainer addSubview: uisl_profileTimeBar];
 }
 
 #pragma mark Add gesture control to profile video
@@ -622,6 +724,7 @@ static NSUInteger kFrameFixer = 1;
         profilePlayerLayer.opacity = 0.0;
         uiv_detailVideoContainer.backgroundColor = [UIColor clearColor];
         closeBtn.alpha = 0.0;
+        uisl_profileTimeBar.alpha = 0.0;
     } completion:^(BOOL finished){
         [closeBtn removeFromSuperview];
         [uiv_detailVideoContainer removeFromSuperview];
@@ -631,6 +734,9 @@ static NSUInteger kFrameFixer = 1;
         [uiv_detailVideoContainer removeGestureRecognizer:swipeProfileMovieUp];
         [uiv_detailVideoContainer removeGestureRecognizer:tapDetailVideo];
         [myAVPlayer play];
+        [uisl_profileTimeBar removeFromSuperview];
+        [uisl_profileTimeBar release];
+        uisl_profileTimeBar = nil;
         [self hideProfileDetail];
     }];
 }
