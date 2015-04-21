@@ -595,6 +595,14 @@ static NSUInteger kFrameFixer = 1;
     }
 }
 
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touch touch touch");
+    [uiv_profileContainer.layer removeAllAnimations];
+    [UIView animateWithDuration:0.33 animations:^{
+        uiv_profileContainer.transform = CGAffineTransformIdentity;
+    }];
+}
+
 - (void)tapUserProfile:(id)sender
 {
     [UIView animateWithDuration:0.33 animations:^{
