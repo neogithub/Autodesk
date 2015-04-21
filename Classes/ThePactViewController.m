@@ -236,13 +236,13 @@ static NSUInteger kFrameFixer = 1;
     
 	if (movieTag==0) {
 		[self.view bringSubviewToFront:movieThumb];
-		movieViewBlack.frame = CGRectMake(26, 180, 314, 180);
+		movieViewBlack.frame = CGRectMake(28, 287, 314, 185);
 	} else if (movieTag==1) {
 		[self.view bringSubviewToFront:movieThumb02];
-		movieViewBlack.frame = CGRectMake(354, 284, 314, 180);
+		movieViewBlack.frame = CGRectMake(358, 287, 314, 185);
 	} else if (movieTag==2){
 		[self.view bringSubviewToFront:movieThumb03];
-		movieViewBlack.frame = CGRectMake(682, 284, 314, 180);
+		movieViewBlack.frame = CGRectMake(686, 287, 314, 185);
 	}
 	
     UIViewAnimationOptions options = UIViewAnimationOptionAllowUserInteraction  | UIViewAnimationOptionCurveEaseInOut;
@@ -254,8 +254,10 @@ static NSUInteger kFrameFixer = 1;
                          
 						 if ([sender tag]==0) {
 							 movieThumb.frame = CGRectMake(0, 86, 1024, 576);
+                             
 						 } else if ([sender tag]==1) {
 							 movieThumb02.frame = CGRectMake(0, 86, 1024, 576);
+                             
 						 } else {
 							 movieThumb03.frame = CGRectMake(0, 86, 1024, 576);
 						 }
@@ -475,7 +477,7 @@ static NSUInteger kFrameFixer = 1;
                          
                          //Kill Done button
                          [uib_closeMainPlayer removeFromSuperview];
-                         [uib_closeMainPlayer release];
+//                         [uib_closeMainPlayer release];
                          uib_closeMainPlayer = nil;
                          
                          //kill swipe gestures
