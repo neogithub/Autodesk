@@ -67,8 +67,18 @@ static NSUInteger kFrameFixer = 1;
 @synthesize myAVPlayerLayer;
 @synthesize playerItem;
 
+// Version label
+@synthesize uil_version;
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     [UIApplication sharedApplication].statusBarHidden = YES;
+    NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+    [uil_version setText:[NSString stringWithFormat:@"v%@", version]];
 }
 
 -(void)viewDidLoad {
@@ -337,6 +347,10 @@ static NSUInteger kFrameFixer = 1;
 - (void)sliding:(id)sender
 {
     if ([sender tag] == 1) {
+        
+        [uiv_profileContainer.layer removeAllAnimations];
+        uiv_profileContainer.transform = CGAffineTransformIdentity;
+        
         [myAVPlayer pause];
         UISlider *slider = sender;
         CMTime newTime = CMTimeMakeWithSeconds(slider.value,600);

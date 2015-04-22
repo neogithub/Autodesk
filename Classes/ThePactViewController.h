@@ -84,6 +84,7 @@
 
 @property (nonatomic, retain) UISlider *progressIndicator;
 
+@property (retain, nonatomic) IBOutlet UILabel *uil_version;
 // AVPlayer
 @property (nonatomic, strong)           UIView                     *uiv_myPlayerContainer;
 @property (nonatomic, strong)           AVPlayerItem               *playerItem;
