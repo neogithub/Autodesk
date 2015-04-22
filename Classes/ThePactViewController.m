@@ -229,8 +229,7 @@ static NSUInteger kFrameFixer = 1;
 		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityConstructionAppleTV" ofType:@"mov"];
 	} else {
 		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityTransportationAppleTV" ofType:@"mov"];
-	}	
-	NSLog(@"%@", url);
+	}
     [self createMainAVPlayer:url];
     [self addGestureToAvPlayer];
     
@@ -415,6 +414,9 @@ static NSUInteger kFrameFixer = 1;
         {
             segIndex = (int)movieBtns.numberOfSegments - 1;
         }
+        if ([currentTime floatValue] < 0.1) {
+            segIndex = 0;
+        }
         movieBtns.selectedSegmentIndex = segIndex;
     }
 }
@@ -464,7 +466,7 @@ static NSUInteger kFrameFixer = 1;
                          //Kill AVplayer
                          [myAVPlayer pause];
                          [myAVPlayerLayer removeFromSuperlayer];
-                         [myAVPlayerLayer release];
+//                         [myAVPlayerLayer release];
                          myAVPlayerLayer = nil;
                          myAVPlayer = nil;
                          playerItem = nil;
@@ -522,8 +524,8 @@ static NSUInteger kFrameFixer = 1;
 - (void)createUserProfleBtn:(int)index
 {
     if (uib_userProfile) {
+//        [uib_userProfile release];
         uib_userProfile = nil;
-        [uib_userProfile release];
     }
     
     // Profile Container
@@ -595,12 +597,11 @@ static NSUInteger kFrameFixer = 1;
     }
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touch touch touch");
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [uiv_profileContainer.layer removeAllAnimations];
-    [UIView animateWithDuration:0.33 animations:^{
+    [UIView animateWithDuration:0.33 delay:0.1 options:0 animations:^{
         uiv_profileContainer.transform = CGAffineTransformIdentity;
-    }];
+    } completion:^(BOOL finished){  }];
 }
 
 - (void)tapUserProfile:(id)sender
@@ -661,8 +662,11 @@ static NSUInteger kFrameFixer = 1;
         uiv_detailVideoContainer.frame = self.view.bounds;
     }completion:^(BOOL finished){
         [uiv_detailVideoContainer removeGestureRecognizer:tapDetailVideo];
-        if (profilePlayerLayer) {
+        if (profilePlayerLayer != nil) {
             [profilePlayerLayer removeFromSuperlayer];
+//            [profilePlayerLayer release];
+//            [profilePlayer release];
+//            [profileItem release];
             profilePlayerLayer = nil;
             profilePlayer = nil;
             profileItem = nil;
@@ -771,6 +775,9 @@ static NSUInteger kFrameFixer = 1;
 
 #pragma mark - Jump movie
 -(IBAction)movieShouldJump:(id)sender {
+    
+    [uiv_profileContainer.layer removeAllAnimations];
+    uiv_profileContainer.transform = CGAffineTransformIdentity;
     
     NSUInteger i = movieBtns.selectedSegmentIndex;
     

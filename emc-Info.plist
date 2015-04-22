@@ -33,11 +33,15 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.1.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<false/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TradeGothicLTStd-Cn18.otf</string>
+	</array>
 	<key>UIApplicationExitsOnSuspend</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>
@@ -52,10 +56,6 @@
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>TradeGothicLTStd-Cn18.otf</string>
 	</array>
 </dict>
 </plist>
