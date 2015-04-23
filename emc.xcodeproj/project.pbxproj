@@ -30,10 +30,13 @@
 		820536921AD4673F00B266CC /* bg-playback-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536901AD4673F00B266CC /* bg-playback-top@2x.png */; };
 		820536951AD4675A00B266CC /* bg-playback-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536931AD4675A00B266CC /* bg-playback-bottom.png */; };
 		820536961AD4675A00B266CC /* bg-playback-bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536941AD4675A00B266CC /* bg-playback-bottom@2x.png */; };
+		82407EC81AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D71ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov */; };
+		82407EC91AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D81ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */; };
+		82407ECA1AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D91ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */; };
+		82407ECB1AE837BC00880BD6 /* AutodeskBimCityConstructionAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B01AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov */; };
+		82407ECC1AE837BC00880BD6 /* AutodeskBimCityEngineeringAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B11AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov */; };
+		82407ECD1AE837BC00880BD6 /* AutodeskBimCityTransportationAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B21AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov */; };
 		82641BA01AE6BCA200205022 /* TradeGothicLTStd-Cn18.otf in Resources */ = {isa = PBXBuildFile; fileRef = 82641B9F1AE6BCA200205022 /* TradeGothicLTStd-Cn18.otf */; };
-		8276C4B31AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B01AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov */; };
-		8276C4B41AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B11AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov */; };
-		8276C4B51AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B21AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov */; };
 		82BDB5C91ADC146300589675 /* icon-user-profile-alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5C71ADC146300589675 /* icon-user-profile-alert.png */; };
 		82BDB5CA1ADC146300589675 /* icon-user-profile-alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5C81ADC146300589675 /* icon-user-profile-alert@2x.png */; };
 		82BDB5D11ADC2EF600589675 /* profile-anna-jones.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5CB1ADC2EF600589675 /* profile-anna-jones.png */; };
@@ -42,9 +45,6 @@
 		82BDB5D41ADC2EF600589675 /* profile-charles-smith@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5CE1ADC2EF600589675 /* profile-charles-smith@2x.png */; };
 		82BDB5D51ADC2EF600589675 /* profile-gary blogg.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5CF1ADC2EF600589675 /* profile-gary blogg.png */; };
 		82BDB5D61ADC2EF600589675 /* profile-gary blogg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D01ADC2EF600589675 /* profile-gary blogg@2x.png */; };
-		82BDB5DA1ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D71ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov */; };
-		82BDB5DB1ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D81ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */; };
-		82BDB5DC1ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D91ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */; };
 		82CC81991AD85C3F003B7CCB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CC81981AD85C3F003B7CCB /* CoreMedia.framework */; };
 		F253575212BA5884000F091F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F253575112BA5884000F091F /* Reachability.m */; };
 		F25357B012BA5990000F091F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25357AF12BA5990000F091F /* MediaPlayer.framework */; };
@@ -53,7 +53,6 @@
 		F2535A5812BA8776000F091F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2535A5712BA8776000F091F /* QuartzCore.framework */; };
 		F29D192B137C7DBF0008A4C5 /* Script.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29D192A137C7DBF0008A4C5 /* Script.xib */; };
 		F29D192E137C7DD30008A4C5 /* ScriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F29D192D137C7DD30008A4C5 /* ScriptViewController.m */; };
-		F2C58ADE12BBF8E300E00C0C /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = F2C58ADD12BBF8E300E00C0C /* style.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +109,6 @@
 		F29D192A137C7DBF0008A4C5 /* Script.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Script.xib; sourceTree = "<group>"; };
 		F29D192C137C7DD30008A4C5 /* ScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptViewController.h; sourceTree = "<group>"; };
 		F29D192D137C7DD30008A4C5 /* ScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptViewController.m; sourceTree = "<group>"; };
-		F2C58ADD12BBF8E300E00C0C /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +181,6 @@
 			children = (
 				820536761AD4602800B266CC /* Images.xcassets */,
 				F288374213707CBF00D18C9A /* EquityAssets */,
-				F2C58ADD12BBF8E300E00C0C /* style.css */,
 				F253580212BA5C09000F091F /* _movies */,
 				F29D192A137C7DBF0008A4C5 /* Script.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -355,37 +352,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				82641BA01AE6BCA200205022 /* TradeGothicLTStd-Cn18.otf in Resources */,
+				82407ECB1AE837BC00880BD6 /* AutodeskBimCityConstructionAppleTV.mov in Resources */,
 				8205368A1AD4625000B266CC /* bttn-engineering@2x.png in Resources */,
-				82BDB5DA1ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* ThePactViewController.xib in Resources */,
-				F2C58ADE12BBF8E300E00C0C /* style.css in Resources */,
-				82BDB5DC1ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov in Resources */,
 				820536881AD4625000B266CC /* bttn-construction@2x.png in Resources */,
 				F29D192B137C7DBF0008A4C5 /* Script.xib in Resources */,
 				82BDB5D31ADC2EF600589675 /* profile-charles-smith.png in Resources */,
 				82BDB5C91ADC146300589675 /* icon-user-profile-alert.png in Resources */,
 				820536921AD4673F00B266CC /* bg-playback-top@2x.png in Resources */,
 				820536771AD4602800B266CC /* Images.xcassets in Resources */,
+				82407ECD1AE837BC00880BD6 /* AutodeskBimCityTransportationAppleTV.mov in Resources */,
 				8205368C1AD4625000B266CC /* bttn-transportation@2x.png in Resources */,
 				820536951AD4675A00B266CC /* bg-playback-bottom.png in Resources */,
+				82407EC91AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov in Resources */,
 				82BDB5D41ADC2EF600589675 /* profile-charles-smith@2x.png in Resources */,
-				8276C4B51AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov in Resources */,
-				8276C4B31AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov in Resources */,
 				82BDB5CA1ADC146300589675 /* icon-user-profile-alert@2x.png in Resources */,
 				82BDB5D61ADC2EF600589675 /* profile-gary blogg@2x.png in Resources */,
 				82BDB5D11ADC2EF600589675 /* profile-anna-jones.png in Resources */,
 				820536911AD4673F00B266CC /* bg-playback-top.png in Resources */,
 				82BDB5D21ADC2EF600589675 /* profile-anna-jones@2x.png in Resources */,
 				8205367C1AD461D700B266CC /* bg-Main-Menu.png in Resources */,
-				82BDB5DB1ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov in Resources */,
 				820536961AD4675A00B266CC /* bg-playback-bottom@2x.png in Resources */,
 				820536891AD4625000B266CC /* bttn-engineering.png in Resources */,
+				82407EC81AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov in Resources */,
 				8205368E1AD4625000B266CC /* icon-play@2x.png in Resources */,
-				8276C4B41AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov in Resources */,
+				82407ECA1AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov in Resources */,
 				82BDB5D51ADC2EF600589675 /* profile-gary blogg.png in Resources */,
 				8205367D1AD461D700B266CC /* bg-Main-Menu@2x.png in Resources */,
 				8205368B1AD4625000B266CC /* bttn-transportation.png in Resources */,
+				82407ECC1AE837BC00880BD6 /* AutodeskBimCityEngineeringAppleTV.mov in Resources */,
 				820536871AD4625000B266CC /* bttn-construction.png in Resources */,
 				8205368D1AD4625000B266CC /* icon-play.png in Resources */,
 			);
