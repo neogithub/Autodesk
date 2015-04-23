@@ -37,26 +37,11 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView *logoImage;
 
-@property (nonatomic, retain) IBOutlet UIView *photoStack;
 @property (nonatomic, retain) IBOutlet UIImageView *photoThumb;
-
-@property (nonatomic, retain) IBOutlet UIImageView *leaves;
-@property (nonatomic, retain) IBOutlet UIImageView *leave01;
-@property (nonatomic, retain) IBOutlet UIImageView *leave02;
-@property (nonatomic, retain) IBOutlet UIImageView *leave03;
-@property (nonatomic, retain) IBOutlet UIImageView *leave04;
-@property (nonatomic, retain) IBOutlet UIImageView *leave05;
-@property (nonatomic, retain) IBOutlet UIImageView *leave06;
-@property (nonatomic, retain) IBOutlet UIImageView *leave07;
 
 @property (nonatomic, retain) IBOutlet UIImageView *videoText;
 @property (nonatomic, retain) IBOutlet UIImageView *photoText;
 @property (nonatomic, retain) IBOutlet UIImageView *webTextReflection;
-
-@property (nonatomic, retain) IBOutlet UILabel *blurbLabel;
-
-@property (nonatomic, retain) IBOutlet UIButton *equityWeb;
-@property (nonatomic, retain) IBOutlet UIButton *westburyWeb;
 
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (retain, nonatomic) IBOutlet UIButton *playButton02;
@@ -76,8 +61,6 @@
 @property (nonatomic, retain) IBOutlet UIView *movieViewBlack;
 
 @property (nonatomic, retain) IBOutlet UISegmentedControl *movieBtns;
-@property (retain, nonatomic) IBOutlet UISegmentedControl *movieBtns2;
-@property (retain, nonatomic) IBOutlet UISegmentedControl *movieBtns3;
 
 @property (nonatomic, retain) NSArray *arr_Timecode;
 @property (nonatomic) NSUInteger movieTag;
@@ -85,11 +68,6 @@
 @property (nonatomic, retain) UISlider *progressIndicator;
 
 @property (retain, nonatomic) IBOutlet UILabel *uil_version;
-// AVPlayer
-@property (nonatomic, strong)           UIView                     *uiv_myPlayerContainer;
-@property (nonatomic, strong)           AVPlayerItem               *playerItem;
-@property (nonatomic, strong)           AVPlayer                   *myAVPlayer;
-@property (nonatomic, strong)           AVPlayerLayer              *myAVPlayerLayer;
 
 //-(void)animateLeaves;
 

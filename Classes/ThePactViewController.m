@@ -32,7 +32,13 @@ static NSUInteger kFrameFixer = 1;
     NSTimer                         *sliederTimer;
     UISwipeGestureRecognizer        *swipeProfileMovieUp;
     UISwipeGestureRecognizer        *swipeProfileMovieDown;
+    // AVPlayer
+    UIView                          *uiv_myPlayerContainer;
+    AVPlayerItem                    *playerItem;
+    AVPlayer                        *myAVPlayer;
+    AVPlayerLayer                   *myAVPlayerLayer;
 }
+
 //logo image
 @synthesize playButton02;
 @synthesize playButton03;
@@ -41,13 +47,7 @@ static NSUInteger kFrameFixer = 1;
 @synthesize logoImage, url, movieTag;
 
 // photos stack on main menu
-@synthesize photoStack, photoThumb;
-
-// logo, blurb
-@synthesize blurbLabel;
-
-// web buttons
-@synthesize equityWeb, westburyWeb;
+@synthesize photoThumb;
 
 @synthesize videoText, photoText, webTextReflection;
 
@@ -57,15 +57,6 @@ static NSUInteger kFrameFixer = 1;
 
 // wireless indicator view
 @synthesize wirelessIndicatorView, progressIndicator;
-
-// leaves
-@synthesize leaves, leave01, leave02, leave03, leave04, leave05, leave06, leave07;
-
-// AVPlayer
-@synthesize uiv_myPlayerContainer;
-@synthesize myAVPlayer;
-@synthesize myAVPlayerLayer;
-@synthesize playerItem;
 
 // Version label
 @synthesize uil_version;
@@ -690,21 +681,26 @@ static NSUInteger kFrameFixer = 1;
         profilePlayerLayer = [AVPlayerLayer playerLayerWithPlayer:profilePlayer];
         profilePlayerLayer.frame = uiv_myPlayerContainer.frame;
         profilePlayerLayer.transform = CATransform3DMakeScale(0.9, 0.9, 1.0);
-        profilePlayerLayer.opacity = 0.0;
+//        profilePlayerLayer.opacity = 0.0;
         [uiv_detailVideoContainer.layer addSublayer: profilePlayerLayer];
-        [UIView animateWithDuration:0.33 animations:^{
-            profilePlayerLayer.opacity = 1.0;
-        } completion:^(BOOL finished){
-            [profilePlayer play];
-            UIButton *uib_detailClose = [UIButton buttonWithType:UIButtonTypeCustom];
-            uib_detailClose.frame = CGRectMake(50.0, 50.0, 50.0, 50.0);
-            uib_detailClose.backgroundColor = [UIColor blackColor];
-            [uib_detailClose setTitle:@"X" forState:UIControlStateNormal];
-            [uiv_detailVideoContainer addSubview: uib_detailClose];
-            [uib_detailClose addTarget:self action:@selector(closeProfileMovie:) forControlEvents:UIControlEventTouchUpInside];
-            [self createProfileMovieGesture];
-            [self addSliderToProfileMovie];
-        }];
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        animation.duration = 0.33;
+        animation.fromValue = [NSNumber numberWithFloat:0.0f];
+        animation.toValue = [NSNumber numberWithFloat:1.0f];
+        animation.removedOnCompletion = NO;
+        [profilePlayerLayer addAnimation:animation forKey:@"opacityFadeIn"];
+        
+        [profilePlayer play];
+        UIButton *uib_detailClose = [UIButton buttonWithType:UIButtonTypeCustom];
+        uib_detailClose.frame = CGRectMake(50.0, 50.0, 50.0, 50.0);
+        uib_detailClose.backgroundColor = [UIColor blackColor];
+        [uib_detailClose setTitle:@"X" forState:UIControlStateNormal];
+        [uiv_detailVideoContainer addSubview: uib_detailClose];
+        [uib_detailClose addTarget:self action:@selector(closeProfileMovie:) forControlEvents:UIControlEventTouchUpInside];
+        [self createProfileMovieGesture];
+        [self addSliderToProfileMovie];
+//        }];
     }];
 }
 
@@ -749,6 +745,7 @@ static NSUInteger kFrameFixer = 1;
 {
     UIButton *closeBtn = sender;
     [UIView animateWithDuration:0.33 animations:^{
+        uiv_detailVideoContainer.frame = CGRectMake(825, 300, 181, 181);
         profilePlayerLayer.opacity = 0.0;
         uiv_detailVideoContainer.backgroundColor = [UIColor clearColor];
         closeBtn.alpha = 0.0;
@@ -834,29 +831,11 @@ static NSUInteger kFrameFixer = 1;
 
 - (void)dealloc {
     [logoImage release];
-    [photoStack release];
-    [blurbLabel release];
-    [equityWeb release];
-    [westburyWeb release];
     [playButton release];
     [movieThumb release];
-    [logoImage release];
-    [photoStack release];
     [photoThumb release];
-    [blurbLabel release];
-    [equityWeb release];
-    [westburyWeb release];
     [playButton release];
-    [movieThumb release];
     [movieShadow release];
-    [leaves release];
-    [leave01 release];
-    [leave02 release];
-    [leave03 release];
-    [leave04 release];
-    [leave05 release];
-    [leave06 release];
-    [leave07 release];
     [videoText release];
     [photoText release];
     [webTextReflection release];
