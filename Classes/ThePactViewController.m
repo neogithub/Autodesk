@@ -44,12 +44,10 @@ static NSUInteger kFrameFixer = 1;
 @synthesize playButton03;
 @synthesize movieThumb02;
 @synthesize movieThumb03;
-@synthesize logoImage, url, movieTag;
+@synthesize url, movieTag;
 
 // photos stack on main menu
 @synthesize photoThumb;
-
-@synthesize videoText, photoText, webTextReflection;
 
 // movie controls
 @synthesize playButton, movieThumb, movieShadow, delegate;
@@ -75,12 +73,10 @@ static NSUInteger kFrameFixer = 1;
 -(void)viewDidLoad {
     
     [UIApplication sharedApplication].statusBarHidden = YES;
-    // make logo image transparent
-    logoImage.alpha = 0.0;
-    
     // make black moviethumb transparent
     movieViewBlack.alpha = 0.0;
 	
+    // Set up Time array for movie's secitons
     arr_Timecode = [[NSArray alloc] initWithObjects:
                     [NSNumber numberWithFloat:0], //intro
                     [NSNumber numberWithFloat:50+kFrameFixer], //map
@@ -89,127 +85,21 @@ static NSUInteger kFrameFixer = 1;
                     [NSNumber numberWithFloat:128+kFrameFixer], //glass
                     nil];
     
-	[self performSelector:@selector(animateTitle) withObject:nil afterDelay:2.5];
+    // Listen avmovie player reach the end of movies
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerItemDidReachEnd:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
                                                object:nil];
-    
+    // Set segment's button title font
     UIFont *font = [UIFont fontWithName:@"TradeGothicLTStd-Cn18" size:16.0];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
-                                                           forKey:UITextAttributeFont];
+                                                           forKey:NSFontAttributeName];
     [movieBtns setTitleTextAttributes:attributes
-                                    forState:UIControlStateNormal];
-
+                            forState:UIControlStateNormal];
     for (UILabel *label in [movieBtns subviews]) {
         label.transform = CGAffineTransformMakeTranslation(0.0, 3.0);
     }
     [movieBtns setContentPositionAdjustment:UIOffsetMake(0, 2) forSegmentType:UISegmentedControlSegmentAny barMetrics:UIBarMetricsDefault];
-}
-
--(void)swipePrevSection:(id)sender {
-    NSLog(@"Swipe left");
-    if([(UISwipeGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
-                                 
-        if (movieBtns.selectedSegmentIndex != 0) {
-            movieBtns.selectedSegmentIndex--;
-			UISegmentedControl *button = (UISegmentedControl *)sender;
-			[self movieShouldJump:button];
-        } else {
-            return;
-        }
-    }
-}
-
--(void)swipeNextSection:(id)sender {
-    NSLog(@"Swipe right");
-    if([(UISwipeGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
-        if (movieBtns.selectedSegmentIndex == 6) {
-            return;
-        } else {
-            NSLog(@"Not Yet");
-            movieBtns.selectedSegmentIndex++;
-			UISegmentedControl *button = (UISegmentedControl *)sender;
-			[self movieShouldJump:button];
-        }
-    }
-}
-
--(void)animateTitle {
-    UIViewAnimationOptions options = UIViewAnimationOptionAllowUserInteraction  | UIViewAnimationOptionCurveEaseInOut;
-    [UIView animateWithDuration:0.5 delay:0.0 options:options 
-                     animations:^{
-                         photoThumb.transform = CGAffineTransformMakeScale(4.05, 4.05);
-                         photoThumb.alpha = 0.0;
-                     }
-                     completion:^(BOOL finished) {
-                         UIViewAnimationOptions options = UIViewAnimationOptionAllowUserInteraction  | UIViewAnimationOptionCurveEaseInOut;
-                         [UIView animateWithDuration:0.30 delay:0.0 options:options 
-                                          animations:^{
-//                                              photoThumb.transform = CGAffineTransformMakeScale(1.0, 1.0);
-//                                              photoText.alpha = 1.0;
-                                          }
-                                          completion:^(BOOL finished) {
-                                          }];                     
-                     }];
-}
-
--(void)animateMovies {
-    UIViewAnimationOptions options = UIViewAnimationOptionAllowUserInteraction  | UIViewAnimationOptionCurveEaseInOut;
-    [UIView animateWithDuration:0.3 delay:0.0 options:options 
-                     animations:^{
-                         movieThumb.transform = CGAffineTransformMakeScale(1.05, 1.05);
-                         movieThumb.alpha = 1.0;
-                         movieShadow.alpha = 1.0;
-                         movieShadow.transform = CGAffineTransformMakeScale(1.05, 1.05);
-                     }
-                     completion:^(BOOL finished) {
-                         UIViewAnimationOptions options = UIViewAnimationOptionAllowUserInteraction  | UIViewAnimationOptionCurveEaseInOut;
-                         [UIView animateWithDuration:0.30 delay:0.0 options:options 
-                                          animations:^{
-                                              movieThumb.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                                              movieShadow.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                                              videoText.alpha = 1.0;
-                                              playButton.alpha = 1.0;
-                                          }
-                                          completion:^(BOOL finished) {
-                                          }];                     
-                     }];
-}
-
--(void)fadeImage {
-    UIViewAnimationOptions options = UIViewAnimationOptionAllowUserInteraction  | UIViewAnimationOptionCurveEaseInOut;
-    [UIView animateWithDuration:0.30 delay:0.0 options:options 
-                     animations:^{
-                         logoImage.alpha = 1.0;
-                     }
-                     completion:^(BOOL finished) {
-                         //movieThumb.alpha = 1.0;                 
-                                              }];
-}
-
--(void)outlineMovieThumb {
-    // add border to button 01
-    CALayer *layer = movieThumb.layer;
-    layer.masksToBounds = NO;
-    layer.cornerRadius = 0.0;
-    layer.borderWidth = 3.0;
-    layer.borderColor = [UIColor blueColor].CGColor;
-    layer.borderColor = [UIColor blackColor].CGColor;
-    layer.shadowOffset = CGSizeMake(3, 3);
-    layer.shadowRadius = 3;
-    layer.shadowOpacity = 0.3;
-}
-
--(void)swipeUpPlay:(id)sender
-{
-    [myAVPlayer play];
-}
-
-
--(void)swipeDownPause:(id)sender
-{
-    [myAVPlayer pause];
 }
 
 #pragma mark - Play Move
@@ -262,8 +152,6 @@ static NSUInteger kFrameFixer = 1;
 							 movieThumb03.frame = CGRectMake(0, 86, 1024, 576);
 						 }
 						 
-					
-						 // movieThumb.frame = CGRectMake(0, 86, 1024, 576);
                          movieViewBlack.alpha = 1.0;
                          movieViewBlack.frame = CGRectMake(0, 86, 1024, 576);
 						 [self.view bringSubviewToFront: movieViewBlack];
@@ -275,7 +163,6 @@ static NSUInteger kFrameFixer = 1;
                          movieViewTop.layer.shadowRadius = 5;
                          movieViewTop.layer.shadowOpacity = 0.25;
                          movieViewTop.layer.shadowPath = [UIBezierPath bezierPathWithRect:movieViewTop.bounds].CGPath;
-
                      }
                      completion:^(BOOL finished) {
                          [self.view addSubview: uiv_myPlayerContainer];
@@ -294,7 +181,6 @@ static NSUInteger kFrameFixer = 1;
         uiv_myPlayerContainer = nil;
         [uiv_myPlayerContainer release];
     }
-    
     uiv_myPlayerContainer = [[UIView alloc] initWithFrame:CGRectMake(0.0, 86.0, 1024.0, 576.0)];
     playerItem = [AVPlayerItem playerItemWithURL:[NSURL fileURLWithPath:movieUrl]];
     myAVPlayer = [[AVPlayer alloc] initWithPlayerItem:playerItem];
@@ -302,7 +188,15 @@ static NSUInteger kFrameFixer = 1;
     myAVPlayerLayer.frame = uiv_myPlayerContainer.bounds;
     myAVPlayerLayer.backgroundColor = [UIColor clearColor].CGColor;
     [uiv_myPlayerContainer.layer addSublayer:myAVPlayerLayer];
-    
+    [self creatMainMovieCloseBtn];
+    [self createSlider];
+    [self createSliderTimer];
+}
+
+#pragma mark Create close movie button
+
+- (void)creatMainMovieCloseBtn
+{
     uib_closeMainPlayer = [UIButton buttonWithType:UIButtonTypeCustom];
     uib_closeMainPlayer.frame = CGRectMake(35.0, 25.0, 80.0, 30.0);
     uib_closeMainPlayer.backgroundColor = [UIColor clearColor];
@@ -315,10 +209,79 @@ static NSUInteger kFrameFixer = 1;
     [uib_closeMainPlayer setTitleColor:[UIColor colorWithRed:115.0/255.0 green:142.0/255.0 blue:174.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [self.view addSubview: uib_closeMainPlayer];
     [uib_closeMainPlayer addTarget:self action:@selector(closeMainPlayer:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self createSlider];
-    [self createSliderTimer];
 }
+
+#pragma mark Close Main Movie Player
+- (void)closeMainPlayer:(id)sender
+{
+    [UIView animateWithDuration:0.50 delay:0.0 options:0
+                     animations:^{
+                         uib_closeMainPlayer.alpha = 0.0;
+                         
+                         movieBtns.selectedSegmentIndex = 0;
+                         
+                         movieThumb.frame = CGRectMake(26, 284, 314, 180);
+                         movieThumb02.frame = CGRectMake(354, 284, 314, 180);
+                         movieThumb03.frame = CGRectMake(682, 284, 314, 180);
+                         
+                         if (movieTag==0) {
+                             movieViewBlack.frame = CGRectMake(26, 284, 314, 180);
+                         } else if (movieTag==1) {
+                             movieViewBlack.frame = CGRectMake(354, 284, 314, 180);
+                         } else if (movieTag==2){
+                             movieViewBlack.frame = CGRectMake(682, 284, 314, 180);
+                         }
+                         movieViewBlack.alpha = 0.0;
+                         movieShadow.alpha = 1.0;
+                         movieViewBottom.transform = CGAffineTransformIdentity;
+                         movieViewTop.transform = CGAffineTransformIdentity;
+                         uiv_profileContainer.alpha = 0.0;
+                         [uiv_myPlayerContainer removeFromSuperview];
+                         [self.view bringSubviewToFront:playButton03];
+                         [self.view bringSubviewToFront:playButton02];
+                         [self.view bringSubviewToFront:playButton];
+                         
+                     }
+                     completion:^(BOOL finished) {
+                         playButton.hidden = NO;
+                         playButton02.hidden = NO;
+                         playButton03.hidden = NO;
+                         
+                         movieViewTop.layer.cornerRadius = 0;
+                         movieViewTop.layer.shadowOffset = CGSizeMake(0,0);
+                         movieViewTop.layer.shadowRadius = 0;
+                         movieViewTop.layer.shadowOpacity = 0.0;
+                         
+                         //Kill AVplayer
+                         [myAVPlayer pause];
+                         [myAVPlayerLayer removeFromSuperlayer];
+                         myAVPlayerLayer = nil;
+                         myAVPlayer = nil;
+                         playerItem = nil;
+                         
+                         //Kill profiles container
+                         [uiv_profileContainer removeFromSuperview];
+                         [uiv_profileContainer release];
+                         uiv_profileContainer = nil;
+                         [sliederTimer invalidate];
+                         
+                         //Kill Done button
+                         [uib_closeMainPlayer removeFromSuperview];
+                         uib_closeMainPlayer = nil;
+                         
+                         //kill swipe gestures
+                         pinchInRecognizer.enabled = NO;
+                         pinchInRecognizer.delegate = nil;
+                         swipeLeftRecognizer.enabled = NO;
+                         swipeLeftRecognizer.delegate = nil;
+                         swipeUpRecognizer.enabled = NO;
+                         swipeUpRecognizer.delegate = nil;
+                         swipeDownRecognizer.enabled = NO;
+                         swipeDownRecognizer.delegate = nil;
+                     }];
+    
+}
+
 #pragma mark Slider Action
 - (void)createSlider
 {
@@ -335,6 +298,7 @@ static NSUInteger kFrameFixer = 1;
     [uiv_myPlayerContainer addSubview:uisl_timerBar];
 }
 
+// Actions of sliding & finish sliding
 - (void)sliding:(id)sender
 {
     if ([sender tag] == 1) {
@@ -384,6 +348,8 @@ static NSUInteger kFrameFixer = 1;
     }
 }
 
+#pragma mark - Create timer to check status of moive
+// Loop the movie, update slider, update highlighting segment button
 /*
  Add Timer to slider
  */
@@ -426,81 +392,7 @@ static NSUInteger kFrameFixer = 1;
     }
 }
 
-
-#pragma mark Close Main Movie Player
-- (void)closeMainPlayer:(id)sender
-{
-    [UIView animateWithDuration:0.50 delay:0.0 options:0
-                     animations:^{
-                         uib_closeMainPlayer.alpha = 0.0;
-                         
-                         movieBtns.selectedSegmentIndex = 0;
-                         
-                         movieThumb.frame = CGRectMake(26, 284, 314, 180);
-                         movieThumb02.frame = CGRectMake(354, 284, 314, 180);
-                         movieThumb03.frame = CGRectMake(682, 284, 314, 180);
-                         
-                         if (movieTag==0) {
-                             movieViewBlack.frame = CGRectMake(26, 284, 314, 180);
-                         } else if (movieTag==1) {
-                             movieViewBlack.frame = CGRectMake(354, 284, 314, 180);
-                         } else if (movieTag==2){
-                             movieViewBlack.frame = CGRectMake(682, 284, 314, 180);
-                         }
-                         movieViewBlack.alpha = 0.0;
-                         movieShadow.alpha = 1.0;
-                         movieViewBottom.transform = CGAffineTransformIdentity;
-                         movieViewTop.transform = CGAffineTransformIdentity;
-                         uiv_profileContainer.alpha = 0.0;
-                         [uiv_myPlayerContainer removeFromSuperview];
-                         [self.view bringSubviewToFront:playButton03];
-                         [self.view bringSubviewToFront:playButton02];
-                         [self.view bringSubviewToFront:playButton];
-                         
-                     }
-                     completion:^(BOOL finished) {
-                         playButton.hidden = NO;
-                         playButton02.hidden = NO;
-                         playButton03.hidden = NO;
-                         
-                         movieViewTop.layer.cornerRadius = 0;
-                         movieViewTop.layer.shadowOffset = CGSizeMake(0,0);
-                         movieViewTop.layer.shadowRadius = 0;
-                         movieViewTop.layer.shadowOpacity = 0.0;
-                         
-                         //Kill AVplayer
-                         [myAVPlayer pause];
-                         [myAVPlayerLayer removeFromSuperlayer];
-//                         [myAVPlayerLayer release];
-                         myAVPlayerLayer = nil;
-                         myAVPlayer = nil;
-                         playerItem = nil;
-                         
-                         //Kill profiles container
-                         [uiv_profileContainer removeFromSuperview];
-                         [uiv_profileContainer release];
-                         uiv_profileContainer = nil;
-                         [sliederTimer invalidate];
-                         
-                         //Kill Done button
-                         [uib_closeMainPlayer removeFromSuperview];
-//                         [uib_closeMainPlayer release];
-                         uib_closeMainPlayer = nil;
-                         
-                         //kill swipe gestures
-                         pinchInRecognizer.enabled = NO;
-                         pinchInRecognizer.delegate = nil;
-                         swipeLeftRecognizer.enabled = NO;
-                         swipeLeftRecognizer.delegate = nil;
-                         swipeUpRecognizer.enabled = NO;
-                         swipeUpRecognizer.delegate = nil;
-                         swipeDownRecognizer.enabled = NO;
-                         swipeDownRecognizer.delegate = nil;
-                     }];
-
-}
-
-#pragma mark add Gesture to AVPlayer container
+#pragma mark - add Gesture to AVPlayer container
 
 - (void)addGestureToAvPlayer
 {
@@ -525,11 +417,50 @@ static NSUInteger kFrameFixer = 1;
     [uiv_myPlayerContainer addGestureRecognizer:swipeDownRecognizer];
 }
 
+#pragma mark Gesture action on main movie
+-(void)swipePrevSection:(id)sender {
+    NSLog(@"Swipe left");
+    if([(UISwipeGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        
+        if (movieBtns.selectedSegmentIndex != 0) {
+            movieBtns.selectedSegmentIndex--;
+            UISegmentedControl *button = (UISegmentedControl *)sender;
+            [self movieShouldJump:button];
+        } else {
+            return;
+        }
+    }
+}
+
+-(void)swipeNextSection:(id)sender {
+    NSLog(@"Swipe right");
+    if([(UISwipeGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        if (movieBtns.selectedSegmentIndex == 6) {
+            return;
+        } else {
+            NSLog(@"Not Yet");
+            movieBtns.selectedSegmentIndex++;
+            UISegmentedControl *button = (UISegmentedControl *)sender;
+            [self movieShouldJump:button];
+        }
+    }
+}
+
+-(void)swipeUpPlay:(id)sender
+{
+    [myAVPlayer play];
+}
+
+
+-(void)swipeDownPause:(id)sender
+{
+    [myAVPlayer pause];
+}
+
 #pragma mark - User Profile Panel
 - (void)createUserProfleBtn:(int)index
 {
     if (uib_userProfile) {
-//        [uib_userProfile release];
         uib_userProfile = nil;
     }
     
@@ -550,6 +481,7 @@ static NSUInteger kFrameFixer = 1;
     [UIView animateWithDuration:0.3 delay:5.5 options:0 animations:^{
         uiv_profileContainer.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished){    }];
+    
     // Profile detail view image
     UIImage *detailImage;
     switch (index) {
@@ -580,7 +512,7 @@ static NSUInteger kFrameFixer = 1;
     [uiv_detailVideoContainer addGestureRecognizer:tapDetailVideo];
     uiv_detailVideoContainer.tag = index;
     
-    //Close Profile button
+    //Close Profile Detail button
     uib_closeProfile = [UIButton buttonWithType:UIButtonTypeCustom];
     uib_closeProfile.backgroundColor = [UIColor clearColor];
     uib_closeProfile.frame = CGRectMake(0.0, 0.0, 240.0, 50.0);
@@ -589,6 +521,7 @@ static NSUInteger kFrameFixer = 1;
     [uiv_profileContainer addSubview: uib_closeProfile];
 }
 
+#pragma mark Close profile detail action
 - (void)closeProfile:(id)sender
 {
     if (uiv_detailVideoContainer.hidden)
@@ -602,6 +535,21 @@ static NSUInteger kFrameFixer = 1;
     }
 }
 
+- (void)hideProfileDetail
+{
+    [UIView animateWithDuration:0.33 animations:^{
+        uiv_profileContainer.frame = CGRectMake(885.0, 240.0, 137.0, 142.0);
+        uib_userProfile.alpha = 1.0;
+        uiiv_profileDetail.alpha = 0.0;
+    } completion:^(BOOL finished){
+        [UIView animateWithDuration:0.33 animations:^{
+            uiv_profileContainer.frame = CGRectMake(885.0, 500.0, 137.0, 142.0);
+            uiv_detailVideoContainer.hidden = YES;
+        }];
+    }];
+}
+
+// Touch on screen to load profile button immediately
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [uiv_profileContainer.layer removeAllAnimations];
     [UIView animateWithDuration:0.33 delay:0.1 options:0 animations:^{
@@ -609,6 +557,7 @@ static NSUInteger kFrameFixer = 1;
     } completion:^(BOOL finished){  }];
 }
 
+#pragma mark Tap profile button and expand detail view
 - (void)tapUserProfile:(id)sender
 {
     [UIView animateWithDuration:0.33 animations:^{
@@ -621,20 +570,6 @@ static NSUInteger kFrameFixer = 1;
             [uiv_detailVideoContainer addGestureRecognizer:tapDetailVideo];
             uiv_detailVideoContainer.hidden = NO;
             uib_closeProfile.enabled = YES;
-        }];
-    }];
-}
-
-- (void)hideProfileDetail
-{
-    [UIView animateWithDuration:0.33 animations:^{
-        uiv_profileContainer.frame = CGRectMake(885.0, 240.0, 137.0, 142.0);
-        uib_userProfile.alpha = 1.0;
-        uiiv_profileDetail.alpha = 0.0;
-    } completion:^(BOOL finished){
-        [UIView animateWithDuration:0.33 animations:^{
-            uiv_profileContainer.frame = CGRectMake(885.0, 500.0, 137.0, 142.0);
-            uiv_detailVideoContainer.hidden = YES;
         }];
     }];
 }
@@ -667,11 +602,10 @@ static NSUInteger kFrameFixer = 1;
         uiv_detailVideoContainer.frame = self.view.bounds;
     }completion:^(BOOL finished){
         [uiv_detailVideoContainer removeGestureRecognizer:tapDetailVideo];
+        
+        // Set up profile movie player
         if (profilePlayerLayer != nil) {
             [profilePlayerLayer removeFromSuperlayer];
-//            [profilePlayerLayer release];
-//            [profilePlayer release];
-//            [profileItem release];
             profilePlayerLayer = nil;
             profilePlayer = nil;
             profileItem = nil;
@@ -681,17 +615,17 @@ static NSUInteger kFrameFixer = 1;
         profilePlayerLayer = [AVPlayerLayer playerLayerWithPlayer:profilePlayer];
         profilePlayerLayer.frame = uiv_myPlayerContainer.frame;
         profilePlayerLayer.transform = CATransform3DMakeScale(0.9, 0.9, 1.0);
-//        profilePlayerLayer.opacity = 0.0;
         [uiv_detailVideoContainer.layer addSublayer: profilePlayerLayer];
         
+        // Fade in animation to profile movie player
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
         animation.duration = 0.33;
         animation.fromValue = [NSNumber numberWithFloat:0.0f];
         animation.toValue = [NSNumber numberWithFloat:1.0f];
         animation.removedOnCompletion = NO;
         [profilePlayerLayer addAnimation:animation forKey:@"opacityFadeIn"];
-        
         [profilePlayer play];
+        
         UIButton *uib_detailClose = [UIButton buttonWithType:UIButtonTypeCustom];
         uib_detailClose.frame = CGRectMake(50.0, 50.0, 50.0, 50.0);
         uib_detailClose.backgroundColor = [UIColor blackColor];
@@ -700,10 +634,10 @@ static NSUInteger kFrameFixer = 1;
         [uib_detailClose addTarget:self action:@selector(closeProfileMovie:) forControlEvents:UIControlEventTouchUpInside];
         [self createProfileMovieGesture];
         [self addSliderToProfileMovie];
-//        }];
     }];
 }
 
+#pragma mark Add slider control to profile movie
 - (void)addSliderToProfileMovie
 {
     uisl_profileTimeBar = [UISlider new];
@@ -730,7 +664,7 @@ static NSUInteger kFrameFixer = 1;
     swipeProfileMovieDown.direction = UISwipeGestureRecognizerDirectionDown;
     [uiv_detailVideoContainer addGestureRecognizer: swipeProfileMovieDown];
 }
-
+// Action of gestures on profile movie
 - (void)playProfileMovie:(UIGestureRecognizer *)gesture
 {
     [profilePlayer play];
@@ -741,6 +675,7 @@ static NSUInteger kFrameFixer = 1;
     [profilePlayer pause];
 }
 
+#pragma mark Action of closing  profile movie
 - (void)closeProfileMovie:(id)sender
 {
     UIButton *closeBtn = sender;
@@ -830,15 +765,11 @@ static NSUInteger kFrameFixer = 1;
 }
 
 - (void)dealloc {
-    [logoImage release];
     [playButton release];
     [movieThumb release];
     [photoThumb release];
     [playButton release];
-    [movieShadow release];
-    [videoText release];
-    [photoText release];
-    [webTextReflection release];
+    [movieShadow release]; 
     [wirelessIndicatorView release];
     [movieViewTop release];
     [movieViewBottom release];
