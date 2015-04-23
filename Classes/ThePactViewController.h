@@ -25,12 +25,12 @@
 @end
 
 @interface ThePactViewController : UIViewController <ModalViewDelegate, UIGestureRecognizerDelegate> {
-    UIView *previousView;
-    UINavigationController *galleryNavigationController;
-    UISwipeGestureRecognizer *pinchInRecognizer;
-    UISwipeGestureRecognizer *swipeLeftRecognizer;
-    UISwipeGestureRecognizer *swipeUpRecognizer;
-    UISwipeGestureRecognizer *swipeDownRecognizer;
+    UIView                          *previousView;
+    UINavigationController          *galleryNavigationController;
+    UISwipeGestureRecognizer        *pinchInRecognizer;
+    UISwipeGestureRecognizer        *swipeLeftRecognizer;
+    UISwipeGestureRecognizer        *swipeUpRecognizer;
+    UISwipeGestureRecognizer        *swipeDownRecognizer;
 }
 
 @property (nonatomic, retain) id<ModalViewDelegate> delegate;
@@ -38,10 +38,6 @@
 @property (nonatomic, retain) IBOutlet UIImageView *logoImage;
 
 @property (nonatomic, retain) IBOutlet UIImageView *photoThumb;
-
-@property (nonatomic, retain) IBOutlet UIImageView *videoText;
-@property (nonatomic, retain) IBOutlet UIImageView *photoText;
-@property (nonatomic, retain) IBOutlet UIImageView *webTextReflection;
 
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (retain, nonatomic) IBOutlet UIButton *playButton02;
@@ -69,16 +65,9 @@
 
 @property (retain, nonatomic) IBOutlet UILabel *uil_version;
 
-//-(void)animateLeaves;
-
--(void)fadeImage;
-//-(void)openCatalogViewer;
 -(void)dismissModal;
-
-//-(IBAction)viewWeb:(id)sender;
 -(IBAction)playThisMovie:(id)sender;
 -(IBAction)movieShouldJump:(id)sender;
-//-(IBAction)movieStop;
 
 @end
 
