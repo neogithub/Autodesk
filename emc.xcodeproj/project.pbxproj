@@ -180,8 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				820536761AD4602800B266CC /* Images.xcassets */,
-				F288374213707CBF00D18C9A /* EquityAssets */,
-				F253580212BA5C09000F091F /* _movies */,
 				F29D192A137C7DBF0008A4C5 /* Script.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 			);
@@ -278,20 +276,6 @@
 				F253575112BA5884000F091F /* Reachability.m */,
 			);
 			name = _internetCheck;
-			sourceTree = "<group>";
-		};
-		F253580212BA5C09000F091F /* _movies */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = _movies;
-			sourceTree = "<group>";
-		};
-		F288374213707CBF00D18C9A /* EquityAssets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = EquityAssets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
