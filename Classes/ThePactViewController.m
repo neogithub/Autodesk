@@ -17,26 +17,29 @@ static NSUInteger kFrameFixer = 1;
 
 @implementation ThePactViewController
 {
-    UIButton                        *uib_closeProfile;
+
     UIButton                        *uib_closeMainPlayer;
-    UIView                          *uiv_profileContainer;
-    UIButton                        *uib_userProfile;
-    UIImageView                     *uiiv_profileDetail;
-    UIView                          *uiv_detailVideoContainer;
-    AVPlayer                        *profilePlayer;
-    AVPlayerLayer                   *profilePlayerLayer;
-    AVPlayerItem                    *profileItem;
-    UITapGestureRecognizer          *tapDetailVideo;
     UISlider                        *uisl_timerBar;
-    UISlider                        *uisl_profileTimeBar;
     NSTimer                         *sliederTimer;
-    UISwipeGestureRecognizer        *swipeProfileMovieUp;
-    UISwipeGestureRecognizer        *swipeProfileMovieDown;
-    // AVPlayer
+    // AVPlayer of Main movie
     UIView                          *uiv_myPlayerContainer;
     AVPlayerItem                    *playerItem;
     AVPlayer                        *myAVPlayer;
     AVPlayerLayer                   *myAVPlayerLayer;
+    // Avplayer of Porfile movie
+    AVPlayer                        *profilePlayer;
+    AVPlayerLayer                   *profilePlayerLayer;
+    AVPlayerItem                    *profileItem;
+    // Items in profle movie container
+    UIButton                        *uib_closeProfile;
+    UIView                          *uiv_profileContainer;
+    UIButton                        *uib_userProfile;
+    UIImageView                     *uiiv_profileDetail;
+    UIView                          *uiv_detailVideoContainer;
+    UITapGestureRecognizer          *tapDetailVideo;
+    UISlider                        *uisl_profileTimeBar;
+    UISwipeGestureRecognizer        *swipeProfileMovieUp;
+    UISwipeGestureRecognizer        *swipeProfileMovieDown;
 }
 
 //logo image
@@ -45,17 +48,13 @@ static NSUInteger kFrameFixer = 1;
 @synthesize movieThumb02;
 @synthesize movieThumb03;
 @synthesize url, movieTag;
-
 // photos stack on main menu
 @synthesize photoThumb;
-
 // movie controls
 @synthesize playButton, movieThumb, movieShadow, delegate;
 @synthesize movieViewTop, movieViewBottom, movieViewBlack, movieBtns, arr_Timecode;
-
 // wireless indicator view
 @synthesize wirelessIndicatorView, progressIndicator;
-
 // Version label
 @synthesize uil_version;
 
@@ -65,6 +64,7 @@ static NSUInteger kFrameFixer = 1;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    // Check app's version num
     [UIApplication sharedApplication].statusBarHidden = YES;
     NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
     [uil_version setText:[NSString stringWithFormat:@"v%@", version]];
@@ -114,6 +114,7 @@ static NSUInteger kFrameFixer = 1;
     
 	url = nil;
 	
+    //Set movie file accroding to the movie tag
 	if ([sender tag]==0) {
 		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityEngineeringAppleTV" ofType:@"mov"];
 	} else if ([sender tag]==1) {
@@ -121,9 +122,11 @@ static NSUInteger kFrameFixer = 1;
 	} else {
 		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityTransportationAppleTV" ofType:@"mov"];
 	}
+    
     [self createMainAVPlayer:url];
     [self addGestureToAvPlayer];
     
+    // Move the movie black view
 	if (movieTag==0) {
 		[self.view bringSubviewToFront:movieThumb];
 		movieViewBlack.frame = CGRectMake(28, 287, 314, 185);
@@ -363,10 +366,12 @@ static NSUInteger kFrameFixer = 1;
  */
 - (void)updateSliderAndTimelabel
 {
+    // If porfile movie is loaded then only loop profile movie
     if (uiv_detailVideoContainer.frame.size.width > 1000) {
         uisl_profileTimeBar.maximumValue = CMTimeGetSeconds([[profilePlayer.currentItem asset] duration]);
         uisl_profileTimeBar.value = CMTimeGetSeconds(profilePlayer.currentTime);
     }
+    // Loop main movie and update highlighted segment button
     else {
         uisl_timerBar.maximumValue = CMTimeGetSeconds([[myAVPlayer.currentItem asset] duration]);
         uisl_timerBar.value = CMTimeGetSeconds(myAVPlayer.currentTime);
@@ -738,7 +743,7 @@ static NSUInteger kFrameFixer = 1;
 }
 
 -(void)dismissModal {
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:^{   }];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
