@@ -51,8 +51,6 @@
 		F25357CE12BA5A5D000F091F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25357CD12BA5A5D000F091F /* SystemConfiguration.framework */; };
 		F253595C12BA6C05000F091F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F253595B12BA6C05000F091F /* AVFoundation.framework */; };
 		F2535A5812BA8776000F091F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2535A5712BA8776000F091F /* QuartzCore.framework */; };
-		F29D192B137C7DBF0008A4C5 /* Script.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29D192A137C7DBF0008A4C5 /* Script.xib */; };
-		F29D192E137C7DD30008A4C5 /* ScriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F29D192D137C7DD30008A4C5 /* ScriptViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,9 +104,6 @@
 		F25357CD12BA5A5D000F091F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F253595B12BA6C05000F091F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F2535A5712BA8776000F091F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		F29D192A137C7DBF0008A4C5 /* Script.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Script.xib; sourceTree = "<group>"; };
-		F29D192C137C7DD30008A4C5 /* ScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptViewController.h; sourceTree = "<group>"; };
-		F29D192D137C7DD30008A4C5 /* ScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +131,6 @@
 				F253574F12BA5884000F091F /* _internetCheck */,
 				1D3623240D0F684500981E51 /* ThePactAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ThePactAppDelegate.m */,
-				F29D192C137C7DD30008A4C5 /* ScriptViewController.h */,
-				F29D192D137C7DD30008A4C5 /* ScriptViewController.m */,
 				28D7ACF60DDB3853001CB0EB /* ThePactViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* ThePactViewController.m */,
 				2899E5210DE3E06400AC0155 /* ThePactViewController.xib */,
@@ -180,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				820536761AD4602800B266CC /* Images.xcassets */,
-				F29D192A137C7DBF0008A4C5 /* Script.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 			);
 			name = Resources;
@@ -341,7 +333,6 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* ThePactViewController.xib in Resources */,
 				820536881AD4625000B266CC /* bttn-construction@2x.png in Resources */,
-				F29D192B137C7DBF0008A4C5 /* Script.xib in Resources */,
 				82BDB5D31ADC2EF600589675 /* profile-charles-smith.png in Resources */,
 				82BDB5C91ADC146300589675 /* icon-user-profile-alert.png in Resources */,
 				820536921AD4673F00B266CC /* bg-playback-top@2x.png in Resources */,
@@ -382,7 +373,6 @@
 				1D3623260D0F684500981E51 /* ThePactAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* ThePactViewController.m in Sources */,
 				F253575212BA5884000F091F /* Reachability.m in Sources */,
-				F29D192E137C7DD30008A4C5 /* ScriptViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

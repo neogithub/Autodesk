@@ -24,46 +24,30 @@
 
 @end
 
-@interface ThePactViewController : UIViewController <ModalViewDelegate, UIGestureRecognizerDelegate> {
-    UIView                          *previousView;
-    UINavigationController          *galleryNavigationController;
-    UISwipeGestureRecognizer        *pinchInRecognizer;
+@interface ThePactViewController : UIViewController <ModalViewDelegate, UIGestureRecognizerDelegate>
+{
+    UISwipeGestureRecognizer        *swipeRightRecognizer;
     UISwipeGestureRecognizer        *swipeLeftRecognizer;
     UISwipeGestureRecognizer        *swipeUpRecognizer;
     UISwipeGestureRecognizer        *swipeDownRecognizer;
 }
 
-@property (nonatomic, retain) id<ModalViewDelegate> delegate;
+@property (nonatomic, retain) id<ModalViewDelegate>             delegate;
+@property (nonatomic, retain) IBOutlet UIButton                 *uib_playBtn1;
+@property (retain, nonatomic) IBOutlet UIButton                 *uib_playBtn2;
+@property (retain, nonatomic) IBOutlet UIButton                 *uib_playBtn3;
+@property (nonatomic, retain) IBOutlet UIImageView              *uiiv_movieThumb1;
+@property (retain, nonatomic) IBOutlet UIImageView              *uiiv_movieThumb2;
+@property (retain, nonatomic) IBOutlet UIImageView              *uiiv_movieThumb3;
+@property (nonatomic, retain) IBOutlet UIView                   *uiv_movieViewTop;
+@property (nonatomic, retain) IBOutlet UIView                   *uiv_movieViewBottom;
+@property (nonatomic, retain) IBOutlet UIView                   *uiv_movieViewBlack;
+@property (retain, nonatomic) IBOutlet UILabel                  *uil_version;
+@property (nonatomic, retain) IBOutlet UISegmentedControl       *movieBtns;
 
-@property (nonatomic, retain) IBOutlet UIImageView *logoImage;
-
-@property (nonatomic, retain) IBOutlet UIImageView *photoThumb;
-
-@property (nonatomic, retain) IBOutlet UIButton *playButton;
-@property (retain, nonatomic) IBOutlet UIButton *playButton02;
-@property (retain, nonatomic) IBOutlet UIButton *playButton03;
-
-@property (nonatomic, retain) IBOutlet UIImageView *movieThumb;
-@property (retain, nonatomic) IBOutlet UIImageView *movieThumb02;
-@property (retain, nonatomic) IBOutlet UIImageView *movieThumb03;
-@property (nonatomic, retain) NSString *url;
-
-@property (nonatomic, retain) IBOutlet UIView *movieShadow;
-
-@property (nonatomic, retain) IBOutlet UIView *wirelessIndicatorView;
-
-@property (nonatomic, retain) IBOutlet UIView *movieViewTop;
-@property (nonatomic, retain) IBOutlet UIView *movieViewBottom;
-@property (nonatomic, retain) IBOutlet UIView *movieViewBlack;
-
-@property (nonatomic, retain) IBOutlet UISegmentedControl *movieBtns;
-
-@property (nonatomic, retain) NSArray *arr_Timecode;
-@property (nonatomic) NSUInteger movieTag;
-
-@property (nonatomic, retain) UISlider *progressIndicator;
-
-@property (retain, nonatomic) IBOutlet UILabel *uil_version;
+@property (nonatomic, retain) NSArray                           *arr_Timecode;
+@property (nonatomic) NSUInteger                                movieTag;
+@property (nonatomic, retain) NSString                          *url;
 
 -(void)dismissModal;
 -(IBAction)playThisMovie:(id)sender;
