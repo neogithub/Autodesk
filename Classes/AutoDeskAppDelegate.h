@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@class ThePactViewController;
+@class TheRootViewController;
 @class Reachability;
 
 
-@interface ThePactAppDelegate : NSObject <UIApplicationDelegate> {
+@interface AutoDeskAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    ThePactViewController *viewController;
+    TheRootViewController *viewController;
     BOOL internetActive;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet ThePactViewController *viewController;
+@property (nonatomic, retain) IBOutlet TheRootViewController *viewController;
 @property (nonatomic, retain) Reachability* internetReachable;
 @property (nonatomic, retain) Reachability* hostReachable;
 @property (nonatomic, retain) NSString *isWirelessAvailable;

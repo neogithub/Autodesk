@@ -6,14 +6,14 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "ThePactViewController.h"
+#import "TheRootViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import "ThePactAppDelegate.h"
+#import "AutoDeskAppDelegate.h"
 
 static NSUInteger kFrameFixer = 1;
 
-@implementation ThePactViewController
+@implementation TheRootViewController
 {
     UIButton                        *uib_closeMainPlayer;
     UISlider                        *uisl_timerBar;
@@ -133,7 +133,7 @@ static NSUInteger kFrameFixer = 1;
 	
     UIViewAnimationOptions options = UIViewAnimationOptionAllowUserInteraction  | UIViewAnimationOptionCurveEaseInOut;
     [UIView animateWithDuration:0.5 delay:0.0 options:options 
-                     animations:^{
+                     animations:^(void){
                          
                          uiv_movieViewBottom.transform = CGAffineTransformTranslate(uiv_movieViewBottom.transform, 0, -110);
                          uiv_movieViewTop.transform = CGAffineTransformTranslate(uiv_movieViewBottom.transform, 0, +200);
@@ -444,12 +444,16 @@ static NSUInteger kFrameFixer = 1;
 
 -(void)swipeUpPlay:(id)sender
 {
+    [uiv_profileContainer.layer removeAllAnimations];
+    uiv_profileContainer.transform = CGAffineTransformIdentity;
     [myAVPlayer play];
 }
 
 
 -(void)swipeDownPause:(id)sender
 {
+    [uiv_profileContainer.layer removeAllAnimations];
+    uiv_profileContainer.transform = CGAffineTransformIdentity;
     [myAVPlayer pause];
 }
 

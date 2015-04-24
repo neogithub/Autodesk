@@ -24,7 +24,7 @@
 
 @end
 
-@interface ThePactViewController : UIViewController <ModalViewDelegate, UIGestureRecognizerDelegate>
+@interface TheRootViewController : UIViewController <ModalViewDelegate, UIGestureRecognizerDelegate>
 {
     UISwipeGestureRecognizer        *swipeRightRecognizer;
     UISwipeGestureRecognizer        *swipeLeftRecognizer;

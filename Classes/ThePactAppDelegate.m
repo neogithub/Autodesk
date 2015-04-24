@@ -6,12 +6,12 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "ThePactAppDelegate.h"
-#import "ThePactViewController.h"
+#import "AutoDeskAppDelegate.h"
+#import "TheRootViewController.h"
 #import "Reachability.h"
 
 
-@implementation ThePactAppDelegate
+@implementation AutoDeskAppDelegate
 
 @synthesize window;
 @synthesize viewController;

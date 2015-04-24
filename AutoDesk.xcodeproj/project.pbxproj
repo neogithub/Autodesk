@@ -12,9 +12,9 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		2899E5220DE3E06400AC0155 /* ThePactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* ThePactViewController.xib */; };
+		2899E5220DE3E06400AC0155 /* TheRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* TheRootViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		28D7ACF80DDB3853001CB0EB /* ThePactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* ThePactViewController.m */; };
+		28D7ACF80DDB3853001CB0EB /* TheRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* TheRootViewController.m */; };
 		820536771AD4602800B266CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 820536761AD4602800B266CC /* Images.xcassets */; };
 		8205367C1AD461D700B266CC /* bg-Main-Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8205367A1AD461D700B266CC /* bg-Main-Menu.png */; };
 		8205367D1AD461D700B266CC /* bg-Main-Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8205367B1AD461D700B266CC /* bg-Main-Menu@2x.png */; };
@@ -55,17 +55,17 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* ThePactAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThePactAppDelegate.h; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* AutoDeskAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDeskAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* ThePactAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThePactAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* emc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* AutoDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2899E5210DE3E06400AC0155 /* ThePactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ThePactViewController.xib; path = ../ThePactViewController.xib; sourceTree = "<group>"; };
+		2899E5210DE3E06400AC0155 /* TheRootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TheRootViewController.xib; path = ../TheRootViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28D7ACF60DDB3853001CB0EB /* ThePactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThePactViewController.h; sourceTree = "<group>"; };
-		28D7ACF70DDB3853001CB0EB /* ThePactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThePactViewController.m; sourceTree = "<group>"; };
+		28D7ACF60DDB3853001CB0EB /* TheRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheRootViewController.h; sourceTree = "<group>"; };
+		28D7ACF70DDB3853001CB0EB /* TheRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheRootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		32CA4F630368D1EE00C91783 /* emc_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emc_Prefix.pch; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* AutoDesk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDesk_Prefix.pch; sourceTree = "<group>"; };
 		820536761AD4602800B266CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = emc/Images.xcassets; sourceTree = "<group>"; };
 		8205367A1AD461D700B266CC /* bg-Main-Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-Main-Menu.png"; sourceTree = "<group>"; };
 		8205367B1AD461D700B266CC /* bg-Main-Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-Main-Menu@2x.png"; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		82BDB5D81ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov; sourceTree = "<group>"; };
 		82BDB5D91ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov; sourceTree = "<group>"; };
 		82CC81981AD85C3F003B7CCB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		8D1107310486CEB800E47090 /* emc-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "emc-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* AutoDesk-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AutoDesk-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F253575012BA5884000F091F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		F253575112BA5884000F091F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		F25357AF12BA5990000F091F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -129,11 +129,11 @@
 			isa = PBXGroup;
 			children = (
 				F253574F12BA5884000F091F /* _internetCheck */,
-				1D3623240D0F684500981E51 /* ThePactAppDelegate.h */,
+				1D3623240D0F684500981E51 /* AutoDeskAppDelegate.h */,
 				1D3623250D0F684500981E51 /* ThePactAppDelegate.m */,
-				28D7ACF60DDB3853001CB0EB /* ThePactViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* ThePactViewController.m */,
-				2899E5210DE3E06400AC0155 /* ThePactViewController.xib */,
+				28D7ACF60DDB3853001CB0EB /* TheRootViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* TheRootViewController.m */,
+				2899E5210DE3E06400AC0155 /* TheRootViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -141,7 +141,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* emc.app */,
+				1D6058910D05DD3D006BFB54 /* AutoDesk.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,7 +149,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107310486CEB800E47090 /* emc-Info.plist */,
+				8D1107310486CEB800E47090 /* AutoDesk-Info.plist */,
 				820536781AD461D700B266CC /* src */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -163,7 +163,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* emc_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* AutoDesk_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -273,9 +273,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* emc */ = {
+		1D6058900D05DD3D006BFB54 /* AutoDesk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "emc" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AutoDesk" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -285,9 +285,9 @@
 			);
 			dependencies = (
 			);
-			name = emc;
+			name = AutoDesk;
 			productName = ThePact;
-			productReference = 1D6058910D05DD3D006BFB54 /* emc.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* AutoDesk.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -303,7 +303,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "emc" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AutoDesk" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -317,7 +317,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* emc */,
+				1D6058900D05DD3D006BFB54 /* AutoDesk */,
 			);
 		};
 /* End PBXProject section */
@@ -331,7 +331,7 @@
 				82407ECB1AE837BC00880BD6 /* AutodeskBimCityConstructionAppleTV.mov in Resources */,
 				8205368A1AD4625000B266CC /* bttn-engineering@2x.png in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				2899E5220DE3E06400AC0155 /* ThePactViewController.xib in Resources */,
+				2899E5220DE3E06400AC0155 /* TheRootViewController.xib in Resources */,
 				820536881AD4625000B266CC /* bttn-construction@2x.png in Resources */,
 				82BDB5D31ADC2EF600589675 /* profile-charles-smith.png in Resources */,
 				82BDB5C91ADC146300589675 /* icon-user-profile-alert.png in Resources */,
@@ -371,7 +371,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* ThePactAppDelegate.m in Sources */,
-				28D7ACF80DDB3853001CB0EB /* ThePactViewController.m in Sources */,
+				28D7ACF80DDB3853001CB0EB /* TheRootViewController.m in Sources */,
 				F253575212BA5884000F091F /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,10 +395,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = emc_Prefix.pch;
-				INFOPLIST_FILE = "emc-Info.plist";
+				GCC_PREFIX_HEADER = AutoDesk_Prefix.pch;
+				INFOPLIST_FILE = "AutoDesk-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = emc;
+				PRODUCT_NAME = AutoDesk;
 				PROVISIONING_PROFILE = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
 			};
@@ -418,10 +418,10 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = emc_Prefix.pch;
-				INFOPLIST_FILE = "emc-Info.plist";
+				GCC_PREFIX_HEADER = AutoDesk_Prefix.pch;
+				INFOPLIST_FILE = "AutoDesk-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = emc;
+				PRODUCT_NAME = AutoDesk;
 				PROVISIONING_PROFILE = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
 				VALIDATE_PRODUCT = NO;
 			};
@@ -493,10 +493,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = emc_Prefix.pch;
-				INFOPLIST_FILE = "emc-Info.plist";
+				GCC_PREFIX_HEADER = AutoDesk_Prefix.pch;
+				INFOPLIST_FILE = "AutoDesk-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = emc;
+				PRODUCT_NAME = AutoDesk;
 				PROVISIONING_PROFILE = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
 			};
@@ -505,7 +505,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "emc" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AutoDesk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -515,7 +515,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "emc" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AutoDesk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:emc.xcodeproj">
+      location = "self:AutoDesk.xcodeproj">
    </FileRef>
 </Workspace>
