@@ -68,15 +68,17 @@ static NSUInteger kFrameFixer = 1;
     [UIApplication sharedApplication].statusBarHidden = YES;
     // make black moviethumb transparent
     uiv_movieViewBlack.alpha = 0.0;
-	
-    // Set up Time array for movie's secitons
-    arr_Timecode = [[NSArray alloc] initWithObjects:
-                    [NSNumber numberWithFloat:0], //intro
-                    [NSNumber numberWithFloat:50+kFrameFixer], //map
-                    [NSNumber numberWithFloat:61+kFrameFixer], // cont - OK
-                    [NSNumber numberWithFloat:92+kFrameFixer], //2 level
-                    [NSNumber numberWithFloat:128+kFrameFixer], //glass
-                    nil];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        // Set up Time array for movie's secitons
+        arr_Timecode = [[NSArray alloc] initWithObjects:
+                        [NSNumber numberWithFloat:0], //intro
+                        [NSNumber numberWithFloat:50+kFrameFixer], //map
+                        [NSNumber numberWithFloat:61+kFrameFixer], // cont - OK
+                        [NSNumber numberWithFloat:92+kFrameFixer], //2 level
+                        [NSNumber numberWithFloat:128+kFrameFixer], //glass
+                        nil];
+    });
     
     // Listen avmovie player reach the end of movies
     [[NSNotificationCenter defaultCenter] addObserver:self
