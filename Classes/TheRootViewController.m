@@ -111,11 +111,11 @@ static NSUInteger kFrameFixer = 1;
 	
     //Set movie file accroding to the movie tag
 	if ([sender tag]==0) {
-		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityEngineeringAppleTV" ofType:@"mov"];
+		url = [[NSBundle mainBundle] pathForResource:@"Autodesk_DestinationBimCity_BuildingDesign_HD" ofType:@"mov"];
 	} else if ([sender tag]==1) {
-		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityConstructionAppleTV" ofType:@"mov"];
+		url = [[NSBundle mainBundle] pathForResource:@"Autodesk_DestinationBimCity_Construction_HD" ofType:@"mov"];
 	} else {
-		url = [[NSBundle mainBundle] pathForResource:@"AutodeskBimCityTransportationAppleTV" ofType:@"mov"];
+		url = [[NSBundle mainBundle] pathForResource:@"Autodesk_DestinationBimCity_Infrastructure_HD" ofType:@"mov"];
 	}
     
     [self createMainAVPlayer:url];

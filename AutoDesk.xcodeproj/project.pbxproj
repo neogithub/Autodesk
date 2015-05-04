@@ -30,12 +30,6 @@
 		820536921AD4673F00B266CC /* bg-playback-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536901AD4673F00B266CC /* bg-playback-top@2x.png */; };
 		820536951AD4675A00B266CC /* bg-playback-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536931AD4675A00B266CC /* bg-playback-bottom.png */; };
 		820536961AD4675A00B266CC /* bg-playback-bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 820536941AD4675A00B266CC /* bg-playback-bottom@2x.png */; };
-		82407EC81AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D71ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov */; };
-		82407EC91AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D81ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */; };
-		82407ECA1AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D91ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */; };
-		82407ECB1AE837BC00880BD6 /* AutodeskBimCityConstructionAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B01AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov */; };
-		82407ECC1AE837BC00880BD6 /* AutodeskBimCityEngineeringAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B11AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov */; };
-		82407ECD1AE837BC00880BD6 /* AutodeskBimCityTransportationAppleTV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8276C4B21AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov */; };
 		82641BA01AE6BCA200205022 /* TradeGothicLTStd-Cn18.otf in Resources */ = {isa = PBXBuildFile; fileRef = 82641B9F1AE6BCA200205022 /* TradeGothicLTStd-Cn18.otf */; };
 		82BDB5C91ADC146300589675 /* icon-user-profile-alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5C71ADC146300589675 /* icon-user-profile-alert.png */; };
 		82BDB5CA1ADC146300589675 /* icon-user-profile-alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5C81ADC146300589675 /* icon-user-profile-alert@2x.png */; };
@@ -46,6 +40,12 @@
 		82BDB5D51ADC2EF600589675 /* profile-gary blogg.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5CF1ADC2EF600589675 /* profile-gary blogg.png */; };
 		82BDB5D61ADC2EF600589675 /* profile-gary blogg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82BDB5D01ADC2EF600589675 /* profile-gary blogg@2x.png */; };
 		82CC81991AD85C3F003B7CCB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CC81981AD85C3F003B7CCB /* CoreMedia.framework */; };
+		88B101D81AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 88B101D21AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov */; };
+		88B101D91AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 88B101D31AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */; };
+		88B101DA1AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 88B101D41AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */; };
+		88B101DB1AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_BuildingDesign_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 88B101D51AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_BuildingDesign_HD.mov */; };
+		88B101DC1AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Construction_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 88B101D61AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Construction_HD.mov */; };
+		88B101DD1AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Infrastructure_HD.mov in Resources */ = {isa = PBXBuildFile; fileRef = 88B101D71AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Infrastructure_HD.mov */; };
 		F253575212BA5884000F091F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F253575112BA5884000F091F /* Reachability.m */; };
 		F25357B012BA5990000F091F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25357AF12BA5990000F091F /* MediaPlayer.framework */; };
 		F25357CE12BA5A5D000F091F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25357CD12BA5A5D000F091F /* SystemConfiguration.framework */; };
@@ -82,9 +82,6 @@
 		820536931AD4675A00B266CC /* bg-playback-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-playback-bottom.png"; sourceTree = "<group>"; };
 		820536941AD4675A00B266CC /* bg-playback-bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-playback-bottom@2x.png"; sourceTree = "<group>"; };
 		82641B9F1AE6BCA200205022 /* TradeGothicLTStd-Cn18.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothicLTStd-Cn18.otf"; sourceTree = "<group>"; };
-		8276C4B01AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AutodeskBimCityConstructionAppleTV.mov; sourceTree = "<group>"; };
-		8276C4B11AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AutodeskBimCityEngineeringAppleTV.mov; sourceTree = "<group>"; };
-		8276C4B21AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = AutodeskBimCityTransportationAppleTV.mov; sourceTree = "<group>"; };
 		82BDB5C71ADC146300589675 /* icon-user-profile-alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-user-profile-alert.png"; sourceTree = "<group>"; };
 		82BDB5C81ADC146300589675 /* icon-user-profile-alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-user-profile-alert@2x.png"; sourceTree = "<group>"; };
 		82BDB5CB1ADC2EF600589675 /* profile-anna-jones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-anna-jones.png"; sourceTree = "<group>"; };
@@ -93,10 +90,13 @@
 		82BDB5CE1ADC2EF600589675 /* profile-charles-smith@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-charles-smith@2x.png"; sourceTree = "<group>"; };
 		82BDB5CF1ADC2EF600589675 /* profile-gary blogg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-gary blogg.png"; sourceTree = "<group>"; };
 		82BDB5D01ADC2EF600589675 /* profile-gary blogg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-gary blogg@2x.png"; sourceTree = "<group>"; };
-		82BDB5D71ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov; sourceTree = "<group>"; };
-		82BDB5D81ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov; sourceTree = "<group>"; };
-		82BDB5D91ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov; sourceTree = "<group>"; };
 		82CC81981AD85C3F003B7CCB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		88B101D21AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov; sourceTree = "<group>"; };
+		88B101D31AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov; sourceTree = "<group>"; };
+		88B101D41AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov; sourceTree = "<group>"; };
+		88B101D51AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_BuildingDesign_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Autodesk_DestinationBimCity_BuildingDesign_HD.mov; sourceTree = "<group>"; };
+		88B101D61AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Construction_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Autodesk_DestinationBimCity_Construction_HD.mov; sourceTree = "<group>"; };
+		88B101D71AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Infrastructure_HD.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Autodesk_DestinationBimCity_Infrastructure_HD.mov; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* AutoDesk-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AutoDesk-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		F253575012BA5884000F091F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		F253575112BA5884000F091F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -251,12 +251,12 @@
 		8276C4AF1AD5619A006C4047 /* films */ = {
 			isa = PBXGroup;
 			children = (
-				82BDB5D71ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov */,
-				82BDB5D81ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */,
-				82BDB5D91ADC315C00589675 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */,
-				8276C4B01AD5619A006C4047 /* AutodeskBimCityConstructionAppleTV.mov */,
-				8276C4B11AD5619A006C4047 /* AutodeskBimCityEngineeringAppleTV.mov */,
-				8276C4B21AD5619A006C4047 /* AutodeskBimCityTransportationAppleTV.mov */,
+				88B101D21AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov */,
+				88B101D31AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov */,
+				88B101D41AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov */,
+				88B101D51AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_BuildingDesign_HD.mov */,
+				88B101D61AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Construction_HD.mov */,
+				88B101D71AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Infrastructure_HD.mov */,
 			);
 			path = films;
 			sourceTree = "<group>";
@@ -328,7 +328,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				82641BA01AE6BCA200205022 /* TradeGothicLTStd-Cn18.otf in Resources */,
-				82407ECB1AE837BC00880BD6 /* AutodeskBimCityConstructionAppleTV.mov in Resources */,
 				8205368A1AD4625000B266CC /* bttn-engineering@2x.png in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* TheRootViewController.xib in Resources */,
@@ -337,26 +336,27 @@
 				82BDB5C91ADC146300589675 /* icon-user-profile-alert.png in Resources */,
 				820536921AD4673F00B266CC /* bg-playback-top@2x.png in Resources */,
 				820536771AD4602800B266CC /* Images.xcassets in Resources */,
-				82407ECD1AE837BC00880BD6 /* AutodeskBimCityTransportationAppleTV.mov in Resources */,
 				8205368C1AD4625000B266CC /* bttn-transportation@2x.png in Resources */,
 				820536951AD4675A00B266CC /* bg-playback-bottom.png in Resources */,
-				82407EC91AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov in Resources */,
 				82BDB5D41ADC2EF600589675 /* profile-charles-smith@2x.png in Resources */,
+				88B101D81AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov in Resources */,
 				82BDB5CA1ADC146300589675 /* icon-user-profile-alert@2x.png in Resources */,
+				88B101DD1AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Infrastructure_HD.mov in Resources */,
 				82BDB5D61ADC2EF600589675 /* profile-gary blogg@2x.png in Resources */,
 				82BDB5D11ADC2EF600589675 /* profile-anna-jones.png in Resources */,
+				88B101D91AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_CharlesSmith_HD.mov in Resources */,
 				820536911AD4673F00B266CC /* bg-playback-top.png in Resources */,
+				88B101DA1AF7AEAA00B544B9 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov in Resources */,
 				82BDB5D21ADC2EF600589675 /* profile-anna-jones@2x.png in Resources */,
 				8205367C1AD461D700B266CC /* bg-Main-Menu.png in Resources */,
 				820536961AD4675A00B266CC /* bg-playback-bottom@2x.png in Resources */,
 				820536891AD4625000B266CC /* bttn-engineering.png in Resources */,
-				82407EC81AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_AnnaJones_HD.mov in Resources */,
 				8205368E1AD4625000B266CC /* icon-play@2x.png in Resources */,
-				82407ECA1AE837BC00880BD6 /* 2015_02_27_Autodesk_BimCity_CharacterProfile_GaryBlogg_HD.mov in Resources */,
 				82BDB5D51ADC2EF600589675 /* profile-gary blogg.png in Resources */,
+				88B101DB1AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_BuildingDesign_HD.mov in Resources */,
 				8205367D1AD461D700B266CC /* bg-Main-Menu@2x.png in Resources */,
+				88B101DC1AF7AEAA00B544B9 /* Autodesk_DestinationBimCity_Construction_HD.mov in Resources */,
 				8205368B1AD4625000B266CC /* bttn-transportation.png in Resources */,
-				82407ECC1AE837BC00880BD6 /* AutodeskBimCityEngineeringAppleTV.mov in Resources */,
 				820536871AD4625000B266CC /* bttn-construction.png in Resources */,
 				8205368D1AD4625000B266CC /* icon-play.png in Resources */,
 			);
@@ -397,7 +397,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AutoDesk_Prefix.pch;
 				INFOPLIST_FILE = "AutoDesk-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = AutoDesk;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -410,8 +410,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,7 +420,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AutoDesk_Prefix.pch;
 				INFOPLIST_FILE = "AutoDesk-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = AutoDesk;
 				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = NO;
@@ -430,15 +430,15 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Neoscape, Incorporated";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Neoscape, Incorporated";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -447,15 +447,15 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Neoscape, Incorporated";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Neoscape, Incorporated";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
-				"PROVISIONING_PROFILE[sdk=*]" = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -469,7 +469,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PROVISIONING_PROFILE = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ac7e9baa-2c52-4e22-9cf0-21224a54a4e7";
 				SDKROOT = iphoneos;
@@ -483,7 +483,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Neoscape, Incorporated";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Neoscape, Incorporated";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -495,7 +495,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AutoDesk_Prefix.pch;
 				INFOPLIST_FILE = "AutoDesk-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = AutoDesk;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
